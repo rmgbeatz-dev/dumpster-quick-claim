@@ -3,7 +3,10 @@
     "target": "ES2020",
     "module": "ESNext",
     "moduleResolution": "node",
-    "lib": ["ES2020", "DOM"],
+    "lib": [
+      "ES2020",
+      "DOM"
+    ],
     "jsx": "react-native",
     "strict": true,
     "noImplicitAny": true,
@@ -16,10 +19,25 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@app/*": ["src/*"]
+      "@app/*": [
+        "src/*"
+      ]
     },
-    "types": ["jest", "node"]
+    "types": [
+      "jest",
+      "node"
+    ]
   },
-  "include": ["src/**/*", "__tests__/**/*", "App.tsx"],
-  "exclude": ["node_modules", "dist", "build", "supabase/functions/**/*"]
+  "include": [
+    "src/**/*",
+    "__tests__/**/*",
+    "App.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "supabase/functions/**/*"
+  ],
+  "extends": "expo/tsconfig.base"
 }

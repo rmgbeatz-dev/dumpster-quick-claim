@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Alert, KeyboardAvoidingView, Platform, Pressable, Text, TextInput, View } from 'react-native';
 import { useAuth } from '../contexts/AuthContext';
-import { screen } from '../theme';
+import { colors, screen, spacing } from '../theme';
 
 export function LoginScreen(): JSX.Element {
-  const { signIn } = useAuth();
+  const { signIn, previewMode } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [submitting, setSubmitting] = useState(false);
@@ -27,6 +27,17 @@ export function LoginScreen(): JSX.Element {
         <Text style={[screen.muted, { marginBottom: 16 }]}>
           Claim, receipt, appeal, and enforcement ledger.
         </Text>
+        {previewMode && (
+          <View style={{ backgroundColor: colors.accentDark, padding: spacing.md, borderRadius: 8, marginBottom: spacing.md }}>
+            <Text style={[screen.text, { fontWeight: '700', marginBottom: 4 }]}>Preview mode</Text>
+            <Text style={screen.muted}>
+              No Supabase connection - using mock data. Sign in with any password, and email keyword:
+            </Text>
+            <Text style={screen.text}>· ryan@example.test  → Provider</Text>
+            <Text style={screen.text}>· tara@example.test  → Proxy</Text>
+            <Text style={screen.text}>· patrick@example.test → Secondary Proxy</Text>
+          </View>
+        )}
         <Text style={screen.label}>Email</Text>
         <TextInput
           style={screen.input}

@@ -19,11 +19,19 @@ export const SUPABASE_ANON_KEY =
 
 export const APP_TIMEZONE = readEnv('EXPO_PUBLIC_APP_TIMEZONE') ?? 'America/New_York';
 
+/**
+ * Preview mode flips the app into a no-backend, mock-data walkthrough. It
+ * auto-activates when Supabase env is missing so `npx expo start --web` just
+ * works as a design showcase.
+ */
+export const PREVIEW_MODE =
+  readEnv('EXPO_PUBLIC_PREVIEW') === '1' || !SUPABASE_URL || !SUPABASE_ANON_KEY;
+
 export function assertEnv(): void {
   if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
     // eslint-disable-next-line no-console
-    console.warn(
-      '[env] Supabase URL/anon key missing. Set EXPO_PUBLIC_SUPABASE_URL and EXPO_PUBLIC_SUPABASE_ANON_KEY.',
+    console.info(
+      '[env] Supabase not configured - running in preview mode with mock data.',
     );
   }
 }

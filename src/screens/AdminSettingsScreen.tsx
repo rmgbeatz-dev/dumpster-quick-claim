@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Alert, Pressable, ScrollView, Switch, Text, View } from 'react-native';
 import { supabase } from '../lib/supabase';
+import { PREVIEW_MODE } from '../lib/env';
+import { mockProvider, mockProxy, mockSecondaryProxy, mockSettings } from '../lib/mockData';
 import type { AppSettings, Profile } from '../types/db';
 import { colors, screen, spacing } from '../theme';
 
@@ -10,6 +12,11 @@ export function AdminSettingsScreen(): JSX.Element {
   const [saving, setSaving] = useState(false);
 
   const load = useCallback(async () => {
+    if (PREVIEW_MODE) {
+      setSettings(mockSettings as AppSettings);
+      setProfiles([mockProvider, mockProxy, mockSecondaryProxy]);
+      return;
+    }
     const [{ data: s }, { data: ps }] = await Promise.all([
       supabase.from('app_settings').select('*').eq('id', 1).maybeSingle(),
       supabase.from('profiles').select('*').order('role'),
@@ -24,6 +31,7 @@ export function AdminSettingsScreen(): JSX.Element {
     if (!settings) return;
     const next = { ...settings, ...patch };
     setSettings(next);
+    if (PREVIEW_MODE) return;
     setSaving(true);
     const { error } = await supabase.from('app_settings').update(patch).eq('id', 1);
     if (error) Alert.alert('Save failed', error.message);
@@ -31,6 +39,10 @@ export function AdminSettingsScreen(): JSX.Element {
   }
 
   async function toggleProxyActive(profile: Profile): Promise<void> {
+    if (PREVIEW_MODE) {
+      setProfiles((prev) => prev.map((p) => p.id === profile.id ? { ...p, active: !p.active } : p));
+      return;
+    }
     const { error } = await supabase.from('profiles').update({ active: !profile.active }).eq('id', profile.id);
     if (error) Alert.alert('Save failed', error.message);
     else load();

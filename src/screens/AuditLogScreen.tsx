@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Alert, FlatList, Pressable, Share, Text, View } from 'react-native';
 import { supabase } from '../lib/supabase';
+import { PREVIEW_MODE } from '../lib/env';
+import { mockAudit } from '../lib/mockData';
 import type { AuditEntry } from '../types/db';
 import { formatEastern } from '../lib/time';
 import { csvEscape } from '../lib/format';
@@ -12,6 +14,11 @@ export function AuditLogScreen(): JSX.Element {
 
   const load = useCallback(async () => {
     setLoading(true);
+    if (PREVIEW_MODE) {
+      setEntries(mockAudit);
+      setLoading(false);
+      return;
+    }
     const { data, error } = await supabase
       .from('audit_log')
       .select('*')

@@ -13,7 +13,7 @@ import { colors, screen, spacing } from '../theme';
 type Props = NativeStackScreenProps<RootStackParamList, 'Dashboard'>;
 
 export function DashboardScreen({ navigation }: Props): JSX.Element {
-  const { profile, signOut } = useAuth();
+  const { profile, signOut, previewMode, setPreviewRole } = useAuth();
   const [claims, setClaims] = useState<Claim[]>([]);
   const [refreshing, setRefreshing] = useState(false);
 
@@ -41,6 +41,20 @@ export function DashboardScreen({ navigation }: Props): JSX.Element {
               <Pressable onPress={signOut}><Text style={{ color: colors.accent }}>Sign out</Text></Pressable>
             </View>
             <Text style={[screen.muted, { marginBottom: spacing.md }]}>Role: {profile?.role}</Text>
+            {previewMode && (
+              <View style={[screen.card, { padding: spacing.md, marginBottom: spacing.md }]}>
+                <Text style={screen.label}>Preview: switch role</Text>
+                <View style={[screen.row, { gap: spacing.sm, flexWrap: 'wrap' }]}>
+                  {(['provider', 'proxy', 'secondary_proxy'] as const).map((r) => (
+                    <Pressable key={r} onPress={() => setPreviewRole(r)}
+                      style={[screen.buttonSecondary,
+                        profile?.role === r ? { borderColor: colors.accent, backgroundColor: colors.accentDark } : null]}>
+                      <Text style={screen.buttonText}>{r}</Text>
+                    </Pressable>
+                  ))}
+                </View>
+              </View>
+            )}
             <View style={[screen.row, { gap: spacing.sm, marginBottom: spacing.lg, flexWrap: 'wrap' }]}>
               {isProxy && (
                 <Pressable onPress={() => navigation.navigate('SubmitClaim')} style={screen.buttonPrimary}>

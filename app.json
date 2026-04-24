@@ -21,6 +21,10 @@
       "expo-image-picker",
       "expo-document-picker"
     ],
+    "web": {
+      "bundler": "metro",
+      "favicon": "./assets/icon.png"
+    },
     "extra": {
       "supabaseUrl": "SET_VIA_ENV",
       "supabaseAnonKey": "SET_VIA_ENV"
