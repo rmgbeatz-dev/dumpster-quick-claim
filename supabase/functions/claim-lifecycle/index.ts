@@ -7,7 +7,7 @@ import { corsHeaders } from '../_shared/cors.ts';
 import { serviceClient } from '../_shared/supabase.ts';
 import { dispatch, recipientsFor } from '../_shared/notify.ts';
 
-serve(async (req) => {
+serve(async (req: Request) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: corsHeaders });
   try {
     const svc = serviceClient();

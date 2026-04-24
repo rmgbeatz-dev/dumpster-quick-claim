@@ -20,7 +20,7 @@ interface ReviewPayload {
   enforcement_level?: 'warning' | 'deductible' | 'suspended';
 }
 
-serve(async (req) => {
+serve(async (req: Request) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: corsHeaders });
   try {
     const uc = userClient(req);

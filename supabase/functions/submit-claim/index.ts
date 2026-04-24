@@ -15,7 +15,7 @@ interface SubmitPayload {
   has_receipt?: boolean;     // client tells us if a receipt was uploaded
 }
 
-serve(async (req) => {
+serve(async (req: Request) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: corsHeaders });
   try {
     const uc = userClient(req);
