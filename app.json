@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "Logistical Dumpster",
+    "slug": "logistical-dumpster",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "backgroundColor": "#0b1220"
+    },
+    "scheme": "logistical-dumpster",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.logisticaldumpster.app"
+    },
+    "android": {
+      "package": "com.logisticaldumpster.app"
+    },
+    "plugins": [
+      "expo-image-picker",
+      "expo-document-picker"
+    ],
+    "extra": {
+      "supabaseUrl": "SET_VIA_ENV",
+      "supabaseAnonKey": "SET_VIA_ENV"
+    }
+  }
+}

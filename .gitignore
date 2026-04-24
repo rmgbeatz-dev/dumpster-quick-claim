@@ -1,21 +1,39 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
-node_modules
-dist
-dist-ssr
+# Node / build
+node_modules/
+dist/
+dist-ssr/
+web-build/
+coverage/
 *.local
+*.log
+*.tsbuildinfo
 
-# Editor directories and files
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Expo
+.expo/
+.expo-shared/
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+.metro-health-check*
+
+# Supabase local
+supabase/.branches/
+supabase/.temp/
+supabase/.env
+
+# Editors / OS
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
