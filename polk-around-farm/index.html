@@ -349,10 +349,88 @@ footer{background:#110c09;color:var(--cream);padding:clamp(4rem,8vw,7rem) 0 2rem
 .toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,150%);background:var(--ink);color:var(--cream);padding:.8rem 1.2rem;border-radius:999px;font-size:.9rem;z-index:70;visibility:hidden;transition:transform .45s cubic-bezier(.2,.8,.2,1),visibility .45s}
 .toast.show{transform:translate(-50%,0);visibility:visible}
 :focus-visible{outline:2px solid var(--honey);outline-offset:3px;border-radius:6px}
+
+/* ===== v2: motion + photo slots ===== */
+.progress{position:fixed;top:0;left:0;height:3px;width:100%;background:var(--honey);transform-origin:left;transform:scaleX(0);z-index:60;pointer-events:none}
+#pollen{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s ease,transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.ph.ok{opacity:1}
+.prod-art .ph{z-index:2}
+.prod:hover .prod-art .ph{transform:scale(1.07)}
+.crop .ph{z-index:-1}
+.crop.has-ph::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(17,12,9,.88) 0%,rgba(17,12,9,.35) 55%,rgba(17,12,9,.15) 100%)}
+.crop.has-ph{color:var(--cream)}
+.story-card .ph{z-index:1}
+.story-card .badge{z-index:2}
+
+/* featured pinned scroller */
+.feat{background:var(--paper);position:relative}
+.feat-sticky{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:clamp(1rem,3vh,2rem);padding-top:64px}
+.feat-head{display:flex;justify-content:space-between;align-items:end;gap:1.5rem;width:100%}
+.feat-head h2{font-size:clamp(2.2rem,5vw,4.4rem)}
+.feat-prog{width:min(260px,40vw);height:3px;background:var(--line);border-radius:2px;overflow:hidden;flex:none;margin-bottom:.8rem}
+.feat-prog i{display:block;height:100%;width:100%;background:var(--ink);transform-origin:left;transform:scaleX(0)}
+.feat-track{display:flex;gap:clamp(14px,2vw,26px);padding:0 var(--gutter);will-change:transform}
+.fp{flex:none;width:min(80vw,1000px);height:min(62svh,600px);border-radius:28px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;isolation:isolate}
+.fp-art{position:relative;display:grid;place-items:center;overflow:hidden}
+.fp-art svg{width:62%;height:62%;filter:drop-shadow(0 30px 30px rgba(0,0,0,.35));will-change:transform}
+.fp-art .ph{z-index:2}
+.fp-copy{padding:clamp(1.4rem,3.5vw,3.2rem);display:flex;flex-direction:column;justify-content:space-between;gap:1rem}
+.fp .num{font-family:var(--serif);font-style:italic;font-size:1.1rem;opacity:.7}
+.fp h3{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,4.6vw,4.4rem);line-height:.95;letter-spacing:-.02em;font-variation-settings:"SOFT" 100,"opsz" 144}
+.fp h3 em{font-style:italic}
+.fp p{max-width:34ch;opacity:.8;font-size:1.02rem;margin-top:1rem}
+.fp-foot{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.fp .price{font-size:1.6rem}
+.fp .add{padding:.85rem 1.3rem;font-size:.95rem}
+.fp-honey{background:linear-gradient(135deg,#f7c75a,#d98b0c);color:var(--ink)}
+.fp-comb{background:linear-gradient(135deg,#ffe29a,#e8a317);color:var(--ink)}
+.fp-maple{background:linear-gradient(135deg,#c4501b,#6e1f07);color:var(--cream)}
+.fp-bourbon{background:linear-gradient(135deg,#5a2a10,#1f0e06);color:var(--cream)}
+.fp-cream{background:linear-gradient(135deg,#efd3ae,#c88a4c);color:var(--ink)}
+.fp-gift{background:linear-gradient(135deg,#3d4c9e,#141a3d);color:var(--cream)}
+.fp-maple .add,.fp-bourbon .add,.fp-gift .add{background:var(--honey);color:var(--ink)}
+@media (max-width:760px){
+  .feat{height:auto!important}
+  .feat-sticky{position:relative;height:auto;padding:5rem 0 4rem}
+  .feat-head{padding:0 var(--gutter)}
+  .feat-prog{display:none}
+  .feat-track{overflow-x:auto;scroll-snap-type:x mandatory;transform:none!important;scrollbar-width:none;padding-bottom:.5rem}
+  .feat-track::-webkit-scrollbar{display:none}
+  .fp{width:84vw;height:auto;grid-template-columns:1fr;grid-template-rows:260px auto;scroll-snap-align:center}
+}
+
+/* sap to syrup */
+.sap{background:#140f0c;color:var(--cream);position:relative;height:260vh}
+.sap-sticky{position:sticky;top:0;height:100svh;display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(1.5rem,5vw,5rem);align-items:center;padding-top:64px}
+.sap .eyebrow{color:var(--honey)}
+.sap h2{font-size:clamp(2.2rem,5.2vw,4.8rem);margin:1rem 0 1.4rem}
+.sap h2 b{font-weight:400;color:var(--honey);display:inline-block;min-width:2ch;font-variant-numeric:tabular-nums}
+.sap-stage{display:flex;gap:.5rem;flex-wrap:wrap}
+.sap-stage span{padding:.5rem .9rem;border-radius:999px;border:1px solid rgba(251,245,234,.2);font-size:.85rem;color:rgba(251,245,234,.5);transition:all .4s}
+.sap-stage span.on{background:var(--honey);color:var(--ink);border-color:var(--honey)}
+.sap-viz{display:grid;grid-template-columns:1fr auto;gap:clamp(1rem,3vw,2.5rem);align-items:end}
+.drops{display:grid;grid-template-columns:repeat(8,1fr);gap:8px}
+.drop{aspect-ratio:3/4;clip-path:path("M12 0 C12 0 0 14 0 22 A12 12 0 0 0 24 22 C24 14 12 0 12 0Z");background:rgba(251,245,234,.08);transition:background .3s,transform .4s cubic-bezier(.2,.8,.2,1),opacity .4s;width:24px;height:34px;justify-self:center}
+.drop.on{background:#d9e6f0}
+.drop.gone{opacity:.12;transform:translateY(-10px) scale(.6)}
+.jar{width:clamp(130px,16vw,200px)}
+.steam path{fill:none;stroke:rgba(251,245,234,.5);stroke-width:3;stroke-linecap:round;stroke-dasharray:6 10;animation:steam 1.6s linear infinite}
+@keyframes steam{to{stroke-dashoffset:-32}}
+.steam{opacity:0;transition:opacity .5s}
+.steam.on{opacity:1}
+@media (max-width:820px){
+  .sap{height:220vh}
+  .sap-sticky{grid-template-columns:1fr;align-content:center;gap:1.5rem}
+  .drops{gap:6px}
+  .jar{width:110px}
+}
+.berry-field .berry{transition:translate .5s cubic-bezier(.2,.8,.2,1)}
 </style>
 </head>
 <body>
 
+<div class="progress" id="prog"></div>
 <!-- ===== NAV ===== -->
 <nav class="nav" id="nav" aria-label="Primary">
   <a href="#top" class="logo" aria-label="The Polk-Around Farm home">
@@ -361,6 +439,7 @@ footer{background:#110c09;color:var(--cream);padding:clamp(4rem,8vw,7rem) 0 2rem
   </a>
   <ul class="nav-links">
     <li><a href="#harvest">Harvest</a></li>
+    <li><a href="#featured">Pantry</a></li>
     <li><a href="#seasons">Seasons</a></li>
     <li><a href="#shop">Shop</a></li>
     <li><a href="#upick">U-Pick</a></li>
@@ -383,6 +462,7 @@ footer{background:#110c09;color:var(--cream);padding:clamp(4rem,8vw,7rem) 0 2rem
 <header class="hero" id="top">
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="hero-comb" aria-hidden="true"></div>
+  <canvas id="pollen" aria-hidden="true"></canvas>
 
   <div class="wrap hero-inner">
     <div class="hero-top">
@@ -404,9 +484,9 @@ footer{background:#110c09;color:var(--cream);padding:clamp(4rem,8vw,7rem) 0 2rem
     </div>
     <div class="hero-stats">
       <div><b data-count="2010">2010</b>Planted &amp; family-run</div>
-      <div><b>3</b>Crops, one farm</div>
-      <div><b>100%</b>Raw, unfiltered honey</div>
-      <div><b>~40:1</b>Gallons of sap per gallon of syrup</div>
+      <div><b data-to="3">3</b>Crops, one farm</div>
+      <div><b data-to="100" data-suf="%">100%</b>Raw, unfiltered honey</div>
+      <div><b data-to="40" data-pre="~" data-suf=":1">~40:1</b>Gallons of sap per gallon of syrup</div>
     </div>
   </div>
 </header>
@@ -434,7 +514,8 @@ footer{background:#110c09;color:var(--cream);padding:clamp(4rem,8vw,7rem) 0 2rem
       <p class="rv d1">We don't do everything. We do three things, in season, in small batches, and we do them well.</p>
     </div>
     <div class="crops">
-      <article class="crop crop-honey rv">
+      <article class="crop crop-honey rv" data-ph-host>
+        <img class="ph" data-ph="images/scenes/hives" alt="Beehives at The Polk-Around Farm">
         <svg class="art" viewBox="0 0 400 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <defs><pattern id="hx" width="46" height="80" patternUnits="userSpaceOnUse"><path d="M23 0l23 13v27L23 53 0 40V13z M23 53v27" fill="none" stroke="#1b1410" stroke-opacity=".14" stroke-width="1.5"/></pattern></defs>
           <rect width="400" height="560" fill="url(#hx)"/>
@@ -447,7 +528,8 @@ footer{background:#110c09;color:var(--cream);padding:clamp(4rem,8vw,7rem) 0 2rem
           <ul><li>Liquid</li><li>Comb honey</li><li>Raw with comb</li><li>Flavored</li></ul>
         </div>
       </article>
-      <article class="crop crop-maple rv d1">
+      <article class="crop crop-maple rv d1" data-ph-host>
+        <img class="ph" data-ph="images/scenes/sugarbush" alt="Maple trees tapped for sap">
         <svg class="art" viewBox="0 0 400 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <g fill="#fff" opacity=".1" transform="translate(210 70) scale(1.6)">
             <path d="M50 0l8 22 18-8-6 24 22-2-16 18 18 14-26 4 4 22-22-14-22 14 4-22-26-4 18-14-16-18 22 2-6-24 18 8z"/><rect x="48" y="96" width="4" height="30"/>
@@ -460,7 +542,8 @@ footer{background:#110c09;color:var(--cream);padding:clamp(4rem,8vw,7rem) 0 2rem
           <ul><li>Syrup</li><li>Bourbon maple</li><li>Maple cream</li><li>Candy</li><li>Sugar</li><li>Spice rub</li></ul>
         </div>
       </article>
-      <article class="crop crop-berry rv d2">
+      <article class="crop crop-berry rv d2" data-ph-host>
+        <img class="ph" data-ph="images/scenes/blueberries" alt="Blueberry bushes in the U-pick patch">
         <svg class="art" viewBox="0 0 400 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <g fill="#fff" opacity=".09"><circle cx="300" cy="110" r="70"/><circle cx="220" cy="170" r="46"/><circle cx="340" cy="210" r="38"/></g>
         </svg>
@@ -471,6 +554,43 @@ footer{background:#110c09;color:var(--cream);padding:clamp(4rem,8vw,7rem) 0 2rem
           <ul><li>By appointment</li><li>8:30 am – noon</li><li>Family-friendly</li></ul>
         </div>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURED (pinned horizontal) ===== -->
+<section class="feat" id="featured" aria-label="Featured products">
+  <div class="feat-sticky">
+    <div class="wrap feat-head">
+      <div><span class="eyebrow">Straight from the pantry</span><h2 class="display" style="margin-top:.6rem">The <em>good</em> stuff.</h2></div>
+      <div class="feat-prog"><i id="featBar"></i></div>
+    </div>
+    <div class="feat-track" id="featTrack"></div>
+  </div>
+</section>
+
+<!-- ===== SAP → SYRUP (scroll story) ===== -->
+<section class="sap" id="sap" aria-label="How maple syrup is made">
+  <div class="wrap sap-sticky">
+    <div>
+      <span class="eyebrow">The math of March</span>
+      <h2 class="display">It takes <b id="sapN">0</b> gallons of sap to make <em>one</em> gallon of syrup.</h2>
+      <div class="sap-stage" id="sapStage"><span>1 · Tap the maples</span><span>2 · Boil it down</span><span>3 · Bottle it</span></div>
+    </div>
+    <div class="sap-viz" aria-hidden="true">
+      <div class="drops" id="drops"></div>
+      <svg class="jar" viewBox="0 0 200 320">
+        <defs><clipPath id="jarClip"><path d="M50 70h100c14 0 22 10 22 24v190c0 16-10 26-26 26H54c-16 0-26-10-26-26V94c0-14 8-24 22-24z"/></clipPath>
+        <linearGradient id="gloss" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".25"/><stop offset=".25" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
+        <g class="steam" id="steam"><path d="M80 50 q-10 -16 0 -30 q10 -14 0 -26"/><path d="M110 54 q-10 -16 0 -30 q10 -14 0 -26" style="animation-delay:-.5s"/><path d="M140 50 q-10 -16 0 -30 q10 -14 0 -26" style="animation-delay:-1s"/></g>
+        <rect x="62" y="44" width="76" height="22" rx="4" fill="#3a2d24"/>
+        <g clip-path="url(#jarClip)"><rect id="syrup" x="0" y="310" width="200" height="320" fill="#f3e6c4"/>
+          <path id="wave" d="M0 0 q25 -8 50 0 t50 0 t50 0 t50 0 t50 0 V20 H0z" fill="#fff" opacity=".18"/></g>
+        <path d="M50 70h100c14 0 22 10 22 24v190c0 16-10 26-26 26H54c-16 0-26-10-26-26V94c0-14 8-24 22-24z" fill="url(#gloss)" stroke="rgba(251,245,234,.55)" stroke-width="3"/>
+        <rect x="58" y="170" width="84" height="56" rx="6" fill="#fbf5ea" opacity=".92"/>
+        <text x="100" y="196" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="15" fill="#1b1410">Pure Maple</text>
+        <text x="100" y="214" text-anchor="middle" font-family="Instrument Sans,sans-serif" font-size="6.5" letter-spacing="1.2" fill="#7b6a5b">ORTONVILLE · MI</text>
+      </svg>
     </div>
   </div>
 </section>
@@ -558,7 +678,8 @@ footer{background:#110c09;color:var(--cream);padding:clamp(4rem,8vw,7rem) 0 2rem
         </blockquote>
         <div class="by rv d2">The family at The Polk-Around Farm</div>
       </div>
-      <div class="story-card rv d1" aria-hidden="true">
+      <div class="story-card rv d1">
+        <img class="ph" data-ph="images/scenes/family" alt="The family at The Polk-Around Farm">
         <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
           <circle cx="200" cy="170" r="70" fill="#fff4d6" opacity=".9"/>
           <path d="M0 330 C80 290 140 300 200 320 S330 350 400 300 V500 H0Z" fill="#7a3b0c" opacity=".55"/>
@@ -715,6 +836,7 @@ footer{background:#110c09;color:var(--cream);padding:clamp(4rem,8vw,7rem) 0 2rem
     {id:"rub",cat:"maple",name:"Maple Spice Rub",desc:"Sweet, smoky and savory. Great on pork, salmon and wings.",price:"Ask",art:"tub"},
     {id:"basket",cat:"gift",name:"Honey & Maple Gift Basket",desc:"A curated mix of the pantry. Built to order for holidays, teachers and clients.",price:"Ask",art:"gift"},
   ];
+  const SLUG = {honey:"raw-honey",comb:"honey-with-comb",combcut:"comb-honey",flavored:"flavored-honey",syrup:"maple-syrup",bourbon:"bourbon-maple-syrup",cream:"maple-cream",bcream:"bourbon-maple-cream",candy:"maple-candy",sugar:"maple-sugar",rub:"maple-spice-rub",basket:"gift-basket"};
   const artBg = {honey:"pa-honey",maple:"pa-maple",gift:"pa-gift"};
   const ART = {
     jar:`<svg viewBox="0 0 100 100"><rect x="30" y="14" width="40" height="12" rx="3" fill="#1b1410"/><path d="M26 30h48c4 0 6 3 6 7v44c0 7-4 11-11 11H31c-7 0-11-4-11-11V37c0-4 2-7 6-7z" fill="#e8a317" stroke="#b86e06" stroke-width="2"/><rect x="28" y="50" width="44" height="22" rx="3" fill="#fbf5ea"/><polygon points="50,55 56,58.5 56,65.5 50,69 44,65.5 44,58.5" fill="#e8a317"/><path d="M30 36c2 8 2 40 0 48" stroke="#fff" stroke-opacity=".5" stroke-width="3" fill="none"/></svg>`,
@@ -727,7 +849,7 @@ footer{background:#110c09;color:var(--cream);padding:clamp(4rem,8vw,7rem) 0 2rem
   const grid = $("#products");
   grid.innerHTML = P.map(p => `
     <article class="prod rv" data-cat="${p.cat}">
-      <div class="prod-art ${artBg[p.cat]}">${ART[p.art]}</div>
+      <div class="prod-art ${artBg[p.cat]}">${ART[p.art]}<img class="ph" data-ph="images/products/${SLUG[p.id]}" alt="${p.name}" loading="lazy"></div>
       <span class="cat">${p.cat}</span>
       <h3>${p.name}</h3>
       <p>${p.desc}</p>
@@ -765,11 +887,11 @@ footer{background:#110c09;color:var(--cream);padding:clamp(4rem,8vw,7rem) 0 2rem
         <div class="qty"><button data-dec="${id}" aria-label="Decrease">−</button><span>${q}</span><button data-inc="${id}" aria-label="Increase">+</button></div></div>`;
     }).join("");
     $("#sendOrder").href = `sms:${PHONE}?&body=${encodeURIComponent(orderText())}`;
-    $$(".add").forEach(b => { const on = bag[b.dataset.id]; b.classList.toggle("added", !!on); b.textContent = on ? `✓ ${on} added` : "+ Add"; });
+    $$(".add").forEach(b => { const on = bag[b.dataset.id]; b.classList.toggle("added", !!on); b.textContent = on ? `✓ ${on} added` : (b.dataset.label || "+ Add"); });
     save();
   };
-  grid.addEventListener("click", e => {
-    const b = e.target.closest(".add"); if (!b) return;
+  document.addEventListener("click", e => {
+    const b = e.target.closest(".add[data-id]"); if (!b) return;
     bag[b.dataset.id] = (bag[b.dataset.id] || 0) + 1;
     const btn = $("#bagBtn"); btn.classList.remove("bump"); void btn.offsetWidth; btn.classList.add("bump");
     render();
@@ -840,6 +962,160 @@ footer{background:#110c09;color:var(--cream);padding:clamp(4rem,8vw,7rem) 0 2rem
       const ang = Math.atan2(my - by, mx - bx) * 57.3;
       bee.style.transform = `translate(${bx + Math.sin(t*2)*4}px,${by + Math.cos(t*3)*4}px) rotate(${ang*.15}deg)`;
       requestAnimationFrame(loop); })();
+  }
+
+
+  /* ================= v2 motion ================= */
+  const fine = matchMedia("(hover:hover) and (pointer:fine)").matches;
+  const calm = matchMedia("(prefers-reduced-motion:reduce)").matches;
+  const clamp = (v,a=0,b=1) => Math.min(b, Math.max(a, v));
+
+  /* ---- featured panels ---- */
+  const FEAT = [
+    {id:"honey",cls:"fp-honey",bg:"pa-honey",t:"Raw <em>honey</em>",d:"Unheated and unfiltered, straight from our hives. It tastes like whatever was blooming that month.",art:"jar"},
+    {id:"comb",cls:"fp-comb",bg:"pa-honey",t:"Honey <em>with comb</em>",d:"Real honeycomb suspended in raw honey. It's the best thing on a cheese board.",art:"comb"},
+    {id:"syrup",cls:"fp-maple",bg:"pa-maple",t:"Pure <em>maple</em> syrup",d:"Tapped and boiled down every March, then bottled in glass. Nothing added.",art:"bottle"},
+    {id:"bourbon",cls:"fp-bourbon",bg:"pa-maple",t:"Bourbon <em>maple</em>",d:"Our syrup with a bourbon edge. The small batch that always sells out first.",art:"bottle"},
+    {id:"cream",cls:"fp-cream",bg:"pa-maple",t:"Maple <em>cream</em>",d:"Just syrup, whipped until it's spreadable. One ingredient, and it's dangerous.",art:"tub"},
+    {id:"basket",cls:"fp-gift",bg:"pa-berry",t:"Gift <em>baskets</em>",d:"Built to order for holidays, teachers and clients. The easiest gift you'll give all year.",art:"gift"},
+  ];
+  const track = $("#featTrack");
+  track.innerHTML = FEAT.map((f,i) => { const p = P.find(x=>x.id===f.id); return `
+    <article class="fp ${f.cls}">
+      <div class="fp-art ${f.bg}">${ART[f.art]}<img class="ph" data-ph="images/products/${SLUG[f.id]}" alt="${p.name}" loading="lazy"></div>
+      <div class="fp-copy">
+        <div><div class="num">No. ${String(i+1).padStart(2,"0")} / ${String(FEAT.length).padStart(2,"0")}</div><h3>${f.t}</h3><p>${f.d}</p></div>
+        <div class="fp-foot"><div class="price">${p.price}${p.sub?`<small>${p.sub}</small>`:""}</div><button class="add" data-id="${f.id}" data-label="+ Add to order">+ Add to order</button></div>
+      </div>
+    </article>`; }).join("");
+  render();
+
+  /* ---- photo slots: drop files in images/, any of these extensions ---- */
+  const EXT = ["jpg","jpeg","png","webp"];
+  $$("img.ph").forEach(img => {
+    let i = 0;
+    const host = img.closest("[data-ph-host]");
+    img.onload = () => { img.classList.add("ok"); host && host.classList.add("has-ph"); };
+    img.onerror = () => { if (++i < EXT.length) img.src = `${img.dataset.ph}.${EXT[i]}`; else img.remove(); };
+    img.src = `${img.dataset.ph}.${EXT[0]}`;
+  });
+
+  /* ---- sap drops ---- */
+  $("#drops").innerHTML = Array.from({length:40}, () => `<div class="drop"></div>`).join("");
+  const drops = $$(".drop");
+  const lerp = (a,b,t) => a + (b-a)*t;
+  const mix = (c1,c2,t) => { const h = c => [1,3,5].map(i=>parseInt(c.slice(i,i+2),16)); const A=h(c1),B=h(c2); return `rgb(${A.map((v,i)=>Math.round(lerp(v,B[i],t))).join(",")})`; };
+
+  /* ---- scroll engine ---- */
+  const feat = $("#featured"), sap = $("#sap"), prog = $("#prog"), heroH1 = $(".hero h1"), glow = $(".hero-glow");
+  const wide = () => innerWidth > 760;
+  const sizeFeat = () => { feat.style.height = wide() ? (track.scrollWidth - innerWidth + innerHeight) + "px" : ""; };
+  sizeFeat(); addEventListener("resize", sizeFeat);
+  const stages = $$("#sapStage span");
+  let lastY = scrollY, vel = 0;
+  const marqTrack = $(".marquee-track"), marqAnim = marqTrack.getAnimations ? marqTrack.getAnimations()[0] : null;
+  const onFrame = () => {
+    const y = scrollY, H = document.documentElement.scrollHeight - innerHeight;
+    prog.style.transform = `scaleX(${y / H})`;
+    // hero parallax
+    if (y < innerHeight * 1.2 && !calm) { heroH1.style.transform = `translateY(${y * .25}px)`; heroH1.style.opacity = 1 - y / (innerHeight * 1.1); glow.style.translate = `0 ${y * .4}px`; }
+    // featured horizontal
+    if (wide()) {
+      const r = feat.getBoundingClientRect(), span = feat.offsetHeight - innerHeight;
+      const p = clamp(-r.top / span);
+      const dist = track.scrollWidth - innerWidth;
+      track.style.transform = `translateX(${-p * dist}px)`;
+      $("#featBar").style.transform = `scaleX(${p})`;
+      if (!calm) $$(".fp").forEach(el => { const b = el.getBoundingClientRect(); const o = (b.left + b.width/2 - innerWidth/2) / innerWidth; const s = el.querySelector(".fp-art svg"); if (s) s.style.transform = `translateX(${o * -60}px) rotate(${o * -12}deg)`; });
+    }
+    // sap story
+    const sr = sap.getBoundingClientRect(), sp = clamp(-sr.top / (sap.offsetHeight - innerHeight));
+    const collect = clamp(sp / .35), boil = clamp((sp - .35) / .5);
+    const lit = Math.round(collect * 40), gone = Math.round(boil * 39);
+    drops.forEach((d,i) => { d.classList.toggle("on", i < lit); d.classList.toggle("gone", i < gone); });
+    $("#sapN").textContent = Math.round(collect * 40);
+    const fill = boil; $("#syrup").setAttribute("y", 300 - fill * 225); $("#wave").setAttribute("transform", `translate(${(performance.now()/20)%50 - 50} ${300 - fill*225 - 4})`);
+    $("#syrup").setAttribute("fill", mix("#f3e6c4", "#8a3a0c", boil));
+    $("#steam").classList.toggle("on", sp > .35 && sp < .9);
+    stages.forEach((s,i) => s.classList.toggle("on", i === (sp < .35 ? 0 : sp < .85 ? 1 : 2)));
+    // marquee reacts to scroll velocity
+    vel = lerp(vel, y - lastY, .1); lastY = y;
+    if (marqAnim && !calm) marqAnim.playbackRate = 1 + Math.min(6, Math.abs(vel) * .25);
+    requestAnimationFrame(onFrame);
+  };
+  requestAnimationFrame(onFrame);
+
+  /* ---- hero pollen + bees canvas ---- */
+  const cv = $("#pollen"), cx = cv.getContext("2d"), hero = $(".hero");
+  let W, Hh, parts = [], mouse = {x:-999,y:-999}, heroOn = true;
+  const dpr = Math.min(2, devicePixelRatio || 1);
+  const sizeCv = () => { W = hero.clientWidth; Hh = hero.clientHeight; cv.width = W*dpr; cv.height = Hh*dpr; cx.setTransform(dpr,0,0,dpr,0,0);
+    parts = Array.from({length: Math.min(110, Math.round(W*Hh/14000))}, () => ({x:Math.random()*W, y:Math.random()*Hh, r:Math.random()*2.2+.4, s:Math.random()*.4+.15, w:Math.random()*6.28, a:Math.random()*.6+.2})); };
+  sizeCv(); addEventListener("resize", sizeCv);
+  hero.addEventListener("pointermove", e => { const b = hero.getBoundingClientRect(); mouse.x = e.clientX - b.left; mouse.y = e.clientY - b.top; });
+  hero.addEventListener("pointerleave", () => { mouse.x = mouse.y = -999; });
+  new IntersectionObserver(([e]) => heroOn = e.isIntersecting).observe(hero);
+  const bees = [0,1,2].map(i => ({ph:i*2.1, sp:.00018 + i*.00005, trail:[]}));
+  const drawBee = (x,y,ang,t) => {
+    cx.save(); cx.translate(x,y); cx.rotate(ang);
+    const flap = Math.sin(t*.08)*.6;
+    cx.fillStyle = "rgba(255,255,255,.55)";
+    cx.beginPath(); cx.ellipse(-2,-6,6,3.5,-.6+flap,0,6.28); cx.fill();
+    cx.beginPath(); cx.ellipse(-2,6,6,3.5,.6-flap,0,6.28); cx.fill();
+    cx.fillStyle = "#e8a317"; cx.beginPath(); cx.ellipse(0,0,9,6,0,0,6.28); cx.fill();
+    cx.fillStyle = "#1b1410"; cx.fillRect(-3,-5.5,2.5,11); cx.fillRect(2,-5,2.5,10);
+    cx.beginPath(); cx.arc(8,0,3,0,6.28); cx.fill();
+    cx.restore();
+  };
+  const tick = t => {
+    if (heroOn && !calm) {
+      cx.clearRect(0,0,W,Hh);
+      for (const p of parts) {
+        p.w += .01; p.y -= p.s; p.x += Math.sin(p.w) * .3;
+        const dx = p.x - mouse.x, dy = p.y - mouse.y, d2 = dx*dx + dy*dy;
+        if (d2 < 14000) { const f = (14000 - d2) / 14000 * 2.2; const d = Math.sqrt(d2)||1; p.x += dx/d*f; p.y += dy/d*f; }
+        if (p.y < -10) { p.y = Hh + 10; p.x = Math.random()*W; }
+        cx.globalAlpha = p.a; cx.fillStyle = "#f5c451";
+        cx.beginPath(); cx.arc(p.x,p.y,p.r,0,6.28); cx.fill();
+      }
+      cx.globalAlpha = 1;
+      for (const b of bees) {
+        const k = t * b.sp + b.ph;
+        const x = W * (.5 + .42*Math.sin(k*1.3)), y = Hh * (.45 + .3*Math.sin(k*2.1 + 1));
+        b.trail.push([x,y]); if (b.trail.length > 26) b.trail.shift();
+        cx.strokeStyle = "rgba(232,163,23,.25)"; cx.setLineDash([2,6]); cx.lineWidth = 1.2;
+        cx.beginPath(); b.trail.forEach(([tx,ty],i) => i ? cx.lineTo(tx,ty) : cx.moveTo(tx,ty)); cx.stroke(); cx.setLineDash([]);
+        const [px,py] = b.trail[Math.max(0, b.trail.length-3)];
+        drawBee(x, y, Math.atan2(y-py, x-px), t);
+      }
+    }
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+
+  /* ---- counters ---- */
+  const cio = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; cio.unobserve(e.target);
+    const el = e.target, to = +el.dataset.to, pre = el.dataset.pre || "", suf = el.dataset.suf || ""; const t0 = performance.now();
+    const step = n => { const k = clamp((n - t0) / 1600), v = Math.round(to * (1 - Math.pow(1-k, 3))); el.textContent = pre + v + suf; if (k < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step); }), {threshold:.6});
+  if (!calm) $$("[data-to]").forEach(el => cio.observe(el));
+
+  /* ---- tilt cards + magnetic buttons + berry repel (desktop) ---- */
+  if (fine && !calm) {
+    const tilt = el => {
+      el.addEventListener("pointermove", e => { const b = el.getBoundingClientRect(); const x = (e.clientX - b.left)/b.width - .5, y = (e.clientY - b.top)/b.height - .5;
+        el.style.transition = "transform .12s"; el.style.transform = `perspective(900px) rotateX(${-y*8}deg) rotateY(${x*10}deg) translateY(-4px)`; });
+      el.addEventListener("pointerleave", () => { el.style.transition = "transform .6s cubic-bezier(.2,.8,.2,1)"; el.style.transform = ""; });
+    };
+    $$(".prod,.crop").forEach(tilt);
+    $$(".btn,.add").forEach(b => {
+      b.addEventListener("pointermove", e => { const r = b.getBoundingClientRect(); b.style.translate = `${(e.clientX - r.left - r.width/2)*.25}px ${(e.clientY - r.top - r.height/2)*.35}px`; });
+      b.addEventListener("pointerleave", () => b.style.translate = "");
+    });
+    const up = $("#upick"), berries = $$(".berry");
+    up.addEventListener("pointermove", e => berries.forEach(br => { const b = br.getBoundingClientRect(); const dx = b.left + b.width/2 - e.clientX, dy = b.top + b.height/2 - e.clientY, d = Math.hypot(dx,dy);
+      const f = Math.max(0, 180 - d) / 180 * 60; br.style.translate = `${dx/(d||1)*f}px ${dy/(d||1)*f}px`; }));
+    up.addEventListener("pointerleave", () => berries.forEach(br => br.style.translate = ""));
   }
 
   $("#yr").textContent = new Date().getFullYear();
