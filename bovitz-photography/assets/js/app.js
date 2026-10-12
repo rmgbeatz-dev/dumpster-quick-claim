@@ -185,8 +185,8 @@
 
   /* ---------- nav, menu, scroll engine ---------- */
   const nav = $("#nav"), prog = $("#prog"), cta = $("#stickyCta"), book = $("#book");
-  $("#burger").onclick = () => { const o = document.body.classList.toggle("m-open"); $("#burger").setAttribute("aria-expanded", o); $("#mmenu").setAttribute("aria-hidden", !o); };
-  $$("#mmenu a").forEach(a => a.addEventListener("click", () => document.body.classList.remove("m-open")));
+  $("#burger").onclick = () => { const o = document.body.classList.toggle("m-open"); $("#burger").setAttribute("aria-expanded", o); $("#mmenu").inert = !o; };
+  $$("#mmenu a").forEach(a => a.addEventListener("click", () => { document.body.classList.remove("m-open"); $("#mmenu").inert = true; $("#burger").setAttribute("aria-expanded", false); }));
   let ticking = false;
   const onScroll = () => {
     ticking = false; const y = scrollY;

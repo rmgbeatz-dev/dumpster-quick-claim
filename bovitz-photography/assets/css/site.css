@@ -166,7 +166,7 @@ button{background:none;border:0;cursor:pointer}
 
 /* ---------- services ---------- */
 .svc{background:var(--bone);color:var(--ink)}
-.svc .kick{color:#9a5a1d}.svc .sh p{color:#5e584e}.svc .disp em{color:#9a5a1d}
+.svc .kick{color:#844b14}.svc .sh p{color:#5e584e}.svc .disp em{color:#844b14}
 .svc-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:2rem}
 .svc-tabs button{padding:.6rem 1.1rem;border-radius:999px;border:1px solid rgba(13,13,12,.18);font-size:.88rem;font-weight:500;transition:all .25s}
 .svc-tabs button[aria-pressed="true"]{background:var(--ink);color:var(--bone);border-color:var(--ink)}
@@ -187,7 +187,7 @@ button{background:none;border:0;cursor:pointer}
 .sample-badge{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .7rem;border-radius:999px;border:1px dashed rgba(13,13,12,.35);margin-left:auto}
 .process{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:clamp(3rem,6vw,5rem);border-top:1px solid rgba(13,13,12,.15)}
 .process div{padding:1.6rem 1.4rem 0 0}
-.process b{font-family:var(--mono);font-size:.75rem;color:#9a5a1d}
+.process b{font-family:var(--mono);font-size:.75rem;color:#844b14}
 .process h4{font-family:var(--serif);font-weight:400;font-size:1.7rem;margin:.4rem 0}
 .process p{font-size:.92rem;color:#5e584e}
 @media (max-width:860px){.process{grid-template-columns:1fr 1fr;row-gap:1rem}}

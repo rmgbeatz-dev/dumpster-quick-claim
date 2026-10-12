@@ -18,6 +18,14 @@ A single-file static site (`index.html`) for The Polk-Around Farm, a family hone
 ## Real photos
 Put photos in `images/` using the names listed in `images/README.md`. They replace the illustrations automatically.
 
+## Deploy
+Publish the `polk-around-farm/` folder as-is. It has no build step. `netlify.toml`, `robots.txt`, `sitemap.xml` and `site.webmanifest` are included, and the canonical URL is `https://www.polkaroundfarm.com/`. Point the domain's DNS at the host once the farm approves.
+
+## Quality checks run
+- Rendered at 1440px and 390px with no horizontal overflow and no script errors
+- The order builder, filters, mobile menu and drawer all work
+- axe-core WCAG 2 A/AA audit: 0 violations. Closed panels use `inert`, so they can't take keyboard focus.
+
 ## Verify before launch
 - **Address:** public listings show both 1200 and 1280 Bald Eagle Lake Rd. The site uses 1200.
 - **Prices:** only publicly listed prices are shown (honey from $8, syrup from $8, bourbon maple $12/$24). Everything else reads "Ask".

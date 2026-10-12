@@ -13,8 +13,8 @@
 <style>
 :root{
   --cream:#fbf7f0;--paper:#f5ede1;--blush:#f4d6cf;--rose:#d9707a;--rose-deep:#a8404f;--peach:#f3a683;
-  --butter:#f6d97a;--willow:#6b7c4f;--moss:#3d4a2c;--ink:#1f2418;--plum:#4a2238;--lav:#b9a7d6;
-  --muted:#6f6a5e;--line:rgba(31,36,24,.13);--r:24px;--g:clamp(16px,4vw,56px);--max:1320px;
+  --butter:#f6d97a;--willow:#55643b;--moss:#3d4a2c;--ink:#1f2418;--plum:#4a2238;--lav:#b9a7d6;
+  --muted:#5f5a4f;--line:rgba(31,36,24,.13);--r:24px;--g:clamp(16px,4vw,56px);--max:1320px;
   --serif:"Instrument Serif",Georgia,serif;--sans:"Manrope",system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -33,13 +33,13 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;op
 .eyebrow{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--willow);display:inline-flex;align-items:center;gap:.6em}
 .eyebrow::before{content:"";width:8px;height:8px;border-radius:50% 0;background:currentColor;transform:rotate(45deg)}
 .serif{font-family:var(--serif);font-weight:400;letter-spacing:-.015em;line-height:.95}
-.serif em{font-style:italic;color:var(--rose)}
+.serif em{font-style:italic;color:var(--rose-deep)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;padding:.95rem 1.45rem;border-radius:999px;font-weight:600;text-decoration:none;font-size:.95rem;transition:transform .3s cubic-bezier(.2,.8,.2,1),background .25s,color .25s,box-shadow .3s;white-space:nowrap}
 .btn:hover{transform:translateY(-2px)}
 .btn-ink{background:var(--ink);color:var(--cream)}
 .btn-ink:hover{background:var(--moss)}
-.btn-rose{background:var(--rose);color:#fff;box-shadow:0 12px 30px -12px rgba(217,112,122,.9)}
-.btn-rose:hover{background:var(--rose-deep)}
+.btn-rose{background:var(--rose-deep);color:#fff;box-shadow:0 12px 30px -12px rgba(168,64,79,.8)}
+.btn-rose:hover{background:#8a3341}
 .btn-line{border:1.5px solid currentColor}
 .rv{opacity:0;transform:translateY(36px);transition:opacity 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -246,7 +246,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;op
 .v-grid h2{font-size:clamp(3rem,7vw,6rem);margin:1rem 0 2rem}
 .v-list{border-top:1px solid rgba(255,255,255,.15)}
 .v-list div{display:grid;grid-template-columns:120px 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.15)}
-.v-list dt{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;opacity:.55;padding-top:.2rem}
+.v-list dt{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;opacity:.75;padding-top:.2rem}
 .v-list a{text-decoration:none;border-bottom:1px solid rgba(246,217,122,.5)}
 .faq details{border-top:1px solid rgba(255,255,255,.15)}
 .faq details:last-child{border-bottom:1px solid rgba(255,255,255,.15)}
@@ -303,7 +303,7 @@ footer{background:var(--ink);color:var(--cream);padding:clamp(4rem,8vw,7rem) 0 2
   <a class="btn btn-ink" href="#bouquet">Build a bouquet</a>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
 </nav>
-<div class="mm" id="mm" aria-hidden="true">
+<div class="mm" id="mm" inert>
   <a href="#offerings">Offerings</a><a href="#catalog">Catalogue</a><a href="#bouquet">Bouquet Bar</a><a href="#seasons">Seasons</a><a href="#feed">From the field</a><a href="#visit">Visit</a>
 </div>
 
@@ -447,7 +447,7 @@ footer{background:var(--ink);color:var(--cream);padding:clamp(4rem,8vw,7rem) 0 2
 
 <button class="bag" id="bag" aria-label="Open your request list">Request list <em id="bagN">0</em></button>
 <div class="dbg" id="dbg"></div>
-<aside class="drawer" id="drawer" aria-label="Your request list" aria-hidden="true">
+<aside class="drawer" id="drawer" aria-label="Your request list" inert>
   <header><h3>Your request</h3><button class="x" id="dx" aria-label="Close">×</button></header>
   <div class="d-body" id="dbody"></div>
   <div class="d-foot">
@@ -650,7 +650,7 @@ const FAQ = [
   };
   document.addEventListener("click", e => { const b = e.target.closest(".add[data-id]"); if (!b) return; req[b.dataset.id]=(req[b.dataset.id]||0)+1; renderReq(); });
   $("#dbody").addEventListener("click", e => { const i=e.target.dataset.inc, d=e.target.dataset.dec; if(i) req[i]++; if(d){ if(--req[d]<=0) delete req[d]; } renderReq(); });
-  const drawer = o => { document.body.classList.toggle("open-d", o); $("#drawer").setAttribute("aria-hidden", !o); };
+  const drawer = o => { document.body.classList.toggle("open-d", o); $("#drawer").inert = !o; if (o) $("#dx").focus(); };
   $("#bag").onclick = () => drawer(true); $("#dx").onclick = $("#dbg").onclick = () => drawer(false);
   const sendReq = async () => {
     const txt = reqText();
@@ -814,8 +814,8 @@ const FAQ = [
   $$(".rv").forEach(el => io.observe(el));
 
   /* ---------- menu ---------- */
-  $("#burger").onclick = () => { const o = document.body.classList.toggle("menu-open"); $("#burger").setAttribute("aria-expanded", o); $("#mm").setAttribute("aria-hidden", !o); };
-  $$("#mm a").forEach(a => a.onclick = () => document.body.classList.remove("menu-open"));
+  $("#burger").onclick = () => { const o = document.body.classList.toggle("menu-open"); $("#burger").setAttribute("aria-expanded", o); $("#mm").inert = !o; };
+  $$("#mm a").forEach(a => a.onclick = () => { document.body.classList.remove("menu-open"); $("#mm").inert = true; $("#burger").setAttribute("aria-expanded", false); });
 
   /* ---------- desktop extras: tilt + petal cursor trail ---------- */
   if (fine && !calm) {
