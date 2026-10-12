@@ -1,0 +1,841 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Willow June Flower Farm</title>
+<meta name="description" content="Seasonal cut flowers, bouquets, flower shares and event florals, grown by hand at Willow June Flower Farm.">
+<meta name="theme-color" content="#fbf7f0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='%23d9707a'%3E%3Cellipse cx='50' cy='28' rx='14' ry='22'/%3E%3Cellipse cx='50' cy='72' rx='14' ry='22'/%3E%3Cellipse cx='28' cy='50' rx='22' ry='14'/%3E%3Cellipse cx='72' cy='50' rx='22' ry='14'/%3E%3C/g%3E%3Ccircle cx='50' cy='50' r='10' fill='%23f6d97a'/%3E%3C/svg%3E">
+<style>
+:root{
+  --cream:#fbf7f0;--paper:#f5ede1;--blush:#f4d6cf;--rose:#d9707a;--rose-deep:#a8404f;--peach:#f3a683;
+  --butter:#f6d97a;--willow:#6b7c4f;--moss:#3d4a2c;--ink:#1f2418;--plum:#4a2238;--lav:#b9a7d6;
+  --muted:#6f6a5e;--line:rgba(31,36,24,.13);--r:24px;--g:clamp(16px,4vw,56px);--max:1320px;
+  --serif:"Instrument Serif",Georgia,serif;--sans:"Manrope",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html,body{overflow-x:clip}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+img,svg,canvas{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--blush)}
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px;border-radius:6px}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.06;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--g)}
+.eyebrow{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--willow);display:inline-flex;align-items:center;gap:.6em}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50% 0;background:currentColor;transform:rotate(45deg)}
+.serif{font-family:var(--serif);font-weight:400;letter-spacing:-.015em;line-height:.95}
+.serif em{font-style:italic;color:var(--rose)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;padding:.95rem 1.45rem;border-radius:999px;font-weight:600;text-decoration:none;font-size:.95rem;transition:transform .3s cubic-bezier(.2,.8,.2,1),background .25s,color .25s,box-shadow .3s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn-ink{background:var(--ink);color:var(--cream)}
+.btn-ink:hover{background:var(--moss)}
+.btn-rose{background:var(--rose);color:#fff;box-shadow:0 12px 30px -12px rgba(217,112,122,.9)}
+.btn-rose:hover{background:var(--rose-deep)}
+.btn-line{border:1.5px solid currentColor}
+.rv{opacity:0;transform:translateY(36px);transition:opacity 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+.sec{padding:clamp(5rem,11vw,9.5rem) 0;position:relative}
+.head{display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;align-items:end;margin-bottom:clamp(2.5rem,5vw,4.5rem)}
+.head h2{font-size:clamp(2.8rem,7vw,6.2rem);margin-top:.8rem}
+.head p{color:var(--muted);font-size:1.08rem;max-width:44ch;justify-self:end}
+@media (max-width:820px){.head{grid-template-columns:1fr}.head p{justify-self:start}}
+
+/* nav */
+.progress{position:fixed;top:0;left:0;height:3px;width:100%;background:linear-gradient(90deg,var(--willow),var(--rose),var(--butter));transform-origin:left;transform:scaleX(0);z-index:70}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:16px var(--g);transition:background .4s,padding .4s,box-shadow .4s}
+.nav.solid{background:rgba(251,247,240,.85);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);padding-top:10px;padding-bottom:10px;box-shadow:0 1px 0 var(--line)}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.logo svg{width:34px;height:34px}
+.logo b{font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1;display:block}
+.logo small{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:var(--willow)}
+.nav ul{display:flex;gap:2rem;list-style:none;font-size:.9rem;font-weight:600}
+.nav ul a{text-decoration:none;position:relative}
+.nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1.5px;background:var(--rose);transform:scaleX(0);transition:transform .35s;transform-origin:left}
+.nav ul a:hover::after{transform:scaleX(1)}
+.nav .btn{padding:.7rem 1.1rem;font-size:.86rem}
+.burger{display:none;width:44px;height:44px;border-radius:50%;place-items:center;background:var(--ink);color:var(--cream)}
+.burger span,.burger span::before,.burger span::after{display:block;width:18px;height:1.5px;background:currentColor;position:relative;transition:transform .3s,background .3s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.menu-open .burger span{background:transparent}
+.menu-open .burger span::before{transform:translateY(6px) rotate(45deg)}
+.menu-open .burger span::after{transform:translateY(-6px) rotate(-45deg)}
+.mm{position:fixed;inset:0;z-index:45;background:var(--plum);color:var(--cream);display:flex;flex-direction:column;justify-content:center;padding:var(--g);clip-path:circle(0 at calc(100% - 40px) 38px);transition:clip-path .75s cubic-bezier(.7,0,.2,1)}
+.menu-open .mm{clip-path:circle(150% at calc(100% - 40px) 38px)}
+.mm a{font-family:var(--serif);font-size:clamp(2.6rem,12vw,4.4rem);text-decoration:none;line-height:1.1}
+.mm a:hover{color:var(--blush)}
+.menu-open .nav{background:transparent;box-shadow:none;backdrop-filter:none;color:var(--cream)}
+@media (max-width:920px){.nav ul,.nav .btn{display:none}.burger{display:grid}}
+
+/* hero */
+.hero{position:relative;min-height:100svh;background:linear-gradient(180deg,#fbf7f0 0%,#f8e8df 55%,#f2d3c9 100%);overflow:hidden;display:flex;align-items:center}
+#garden{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+#willow{position:absolute;top:0;left:0;width:100%;height:340px;z-index:2;pointer-events:none;opacity:.8}
+#willow .strand{transform-box:view-box;animation:sway var(--d,6s) ease-in-out infinite alternate;transition:rotate 1.2s cubic-bezier(.2,.8,.2,1)}
+@keyframes sway{from{transform:rotate(-2.2deg)}to{transform:rotate(2.2deg)}}
+.hero-in{position:relative;z-index:3;padding-top:150px;padding-bottom:30vh;width:100%}
+.hero .chip{display:inline-flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.65);backdrop-filter:blur(8px);border:1px solid var(--line);padding:.5rem .95rem .5rem .6rem;border-radius:999px;font-size:.84rem;font-weight:600;margin-bottom:1.6rem}
+.hero .chip i{width:9px;height:9px;border-radius:50%;background:var(--willow);box-shadow:0 0 0 0 rgba(107,124,79,.6);animation:ping 2.2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 10px rgba(107,124,79,0)}100%{box-shadow:0 0 0 0 rgba(107,124,79,0)}}
+.hero h1{font-size:clamp(3.4rem,9vw,8.6rem);max-width:12ch}
+.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em}
+.hero h1 .w>span{display:inline-block;transform:translateY(110%) rotate(6deg);animation:up 1.3s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes up{to{transform:none}}
+.hero p.lead{font-size:clamp(1.05rem,1.6vw,1.3rem);max-width:40ch;color:#4b4a40;margin:1.6rem 0 2rem}
+.hero .ctas{display:flex;gap:.7rem;flex-wrap:wrap}
+.scroll-cue{position:absolute;left:50%;bottom:22px;z-index:3;transform:translateX(-50%);font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:var(--moss);display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.scroll-cue::after{content:"";width:1.5px;height:44px;background:linear-gradient(var(--moss),transparent);animation:cue 2s ease-in-out infinite;transform-origin:top}
+@keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+
+/* marquee */
+.marq{background:var(--moss);color:var(--cream);overflow:hidden;padding:1.1rem 0;transform:rotate(-1.2deg) scale(1.03);margin:-1rem 0 0;position:relative;z-index:4}
+.marq-t{display:flex;width:max-content;animation:mq 40s linear infinite}
+.marq span{font-family:var(--serif);font-style:italic;font-size:clamp(1.4rem,2.6vw,2.1rem);padding:0 1.6rem;display:flex;align-items:center;gap:3.2rem;white-space:nowrap}
+.marq span::after{content:"✿";font-style:normal;color:var(--blush);font-size:.8em}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* manifesto */
+.manifesto p{font-family:var(--serif);font-size:clamp(2rem,4.6vw,4.2rem);line-height:1.12;letter-spacing:-.01em;max-width:22ch}
+.manifesto .wd{opacity:.14;transition:opacity .25s}
+.manifesto .wd.on{opacity:1}
+.manifesto .wd.hl.on{color:var(--rose);font-style:italic}
+
+/* offerings */
+.offers{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.4vw,18px)}
+@media (max-width:1050px){.offers{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.offers{grid-template-columns:1fr}}
+.offer{position:relative;border-radius:var(--r);overflow:hidden;min-height:470px;padding:1.5rem;display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate;color:var(--ink);transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.offer .art{position:absolute;inset:0;z-index:-2;display:grid;place-items:center;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.offer .art svg{width:80%;height:auto}
+.offer:hover .art{transform:scale(1.07) rotate(-2deg)}
+.offer .ph{z-index:-1}
+.offer.has-ph{color:#fff}
+.offer.has-ph::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(20,18,12,.82),rgba(20,18,12,.1) 65%)}
+.offer .n{position:absolute;top:1.3rem;left:1.5rem;font-family:var(--serif);font-style:italic;font-size:1.2rem;opacity:.7}
+.offer h3{font-family:var(--serif);font-weight:400;font-size:2.4rem;line-height:1;margin-bottom:.5rem}
+.offer p{font-size:.92rem;opacity:.85;margin-bottom:1rem}
+.offer .tags{display:flex;flex-wrap:wrap;gap:.35rem}
+.offer .tags span{font-size:.74rem;font-weight:600;padding:.3rem .7rem;border-radius:999px;background:rgba(255,255,255,.55);backdrop-filter:blur(6px)}
+.offer.has-ph .tags span{background:rgba(255,255,255,.18)}
+.o1{background:linear-gradient(170deg,#fde3d8,#f2b5a8)}
+.o2{background:linear-gradient(170deg,#e9edd9,#b9c79a)}
+.o3{background:linear-gradient(170deg,#fbefc4,#f3c96a)}
+.o4{background:linear-gradient(170deg,#ece3f5,#c3addd)}
+.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s}
+.ph.ok{opacity:1}
+
+/* catalogue */
+.catalog{background:var(--paper)}
+.tabs{display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:2rem}
+.tab{padding:.6rem 1.1rem;border-radius:999px;border:1.5px solid var(--line);font-size:.88rem;font-weight:600;transition:all .25s}
+.tab:hover{border-color:var(--ink)}
+.tab[aria-pressed="true"]{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.items{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:clamp(10px,1.4vw,18px)}
+@media (max-width:560px){.items{grid-template-columns:1fr 1fr;gap:10px}}
+.item{background:var(--cream);border:1px solid var(--line);border-radius:20px;padding:1rem;display:flex;flex-direction:column;transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s}
+.item:hover{transform:translateY(-5px);box-shadow:0 28px 50px -28px rgba(74,34,56,.45)}
+.item[hidden]{display:none}
+.item .pic{aspect-ratio:1;border-radius:14px;position:relative;overflow:hidden;display:grid;place-items:center;margin-bottom:.9rem}
+.item .pic svg{width:72%;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.item:hover .pic svg{transform:rotate(-8deg) scale(1.06)}
+.item .pic .ph{z-index:2}
+.item .k{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--willow)}
+.item h4{font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.05;margin:.25rem 0 .35rem}
+.item p{font-size:.86rem;color:var(--muted);flex:1}
+.item .ft{display:flex;justify-content:space-between;align-items:center;gap:.5rem;margin-top:.9rem;flex-wrap:wrap}
+.item .pr{font-family:var(--serif);font-size:1.3rem}
+.item .pr small{display:block;font-family:var(--sans);font-size:.68rem;color:var(--muted);line-height:1}
+.add{padding:.55rem .95rem;border-radius:999px;background:var(--ink);color:var(--cream);font-size:.8rem;font-weight:700;transition:background .2s}
+.add:hover{background:var(--rose)}
+.add.on{background:var(--willow)}
+@media (max-width:560px){.item{padding:.65rem}.item h4{font-size:1.2rem}.item p{font-size:.78rem}.add{width:100%}}
+.cat-note{margin-top:1.6rem;font-size:.86rem;color:var(--muted)}
+
+/* bouquet bar */
+.bar{background:var(--plum);color:var(--cream);overflow:hidden}
+.bar .eyebrow{color:var(--blush)}
+.bar .head p{color:rgba(251,247,240,.7)}
+.bar .serif em{color:var(--blush)}
+.studio{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(1.5rem,4vw,4rem);align-items:start}
+@media (max-width:900px){.studio{grid-template-columns:1fr}}
+.stage{position:sticky;top:90px;background:radial-gradient(circle at 50% 40%,#5d2d48,#3a1a2c);border-radius:28px;aspect-ratio:4/5;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+@media (max-width:900px){.stage{position:relative;top:0;max-width:460px;margin:0 auto;width:100%}}
+.stage svg{width:100%;height:100%}
+.stage .count{position:absolute;top:1rem;left:1rem;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:rgba(255,255,255,.1);padding:.4rem .8rem;border-radius:999px}
+.stage .hint{position:absolute;bottom:1rem;left:0;right:0;text-align:center;font-size:.8rem;opacity:.6}
+#bq .sway{animation:bsway 5s ease-in-out infinite alternate;transform-origin:200px 470px}
+@keyframes bsway{from{transform:rotate(-1.2deg)}to{transform:rotate(1.2deg)}}
+#bq .sg{transition:transform .8s cubic-bezier(.2,.8,.2,1);transform-origin:200px 410px}
+#bq .hd{cursor:pointer}
+#bq .pop{transform-box:fill-box;transform-origin:center;animation:pop .9s cubic-bezier(.2,1.4,.4,1) both}
+@keyframes pop{from{transform:scale(0) rotate(-60deg)}}
+#bq .draw{stroke-dasharray:1;stroke-dashoffset:1;animation:draw .6s ease-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.picker{display:grid;gap:10px}
+.pk{display:grid;grid-template-columns:62px 1fr auto;gap:1rem;align-items:center;padding:.8rem;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
+.pk .ic{width:62px;height:62px;border-radius:14px;background:rgba(255,255,255,.07);display:grid;place-items:center}
+.pk .ic svg{width:52px;height:52px}
+.pk b{font-family:var(--serif);font-weight:400;font-size:1.4rem;display:block;line-height:1}
+.pk small{opacity:.6;font-size:.8rem}
+.sw{display:flex;gap:6px}
+.sw button{width:30px;height:30px;border-radius:50%;border:2px solid rgba(255,255,255,.25);transition:transform .2s,border-color .2s}
+.sw button:hover{transform:scale(1.18);border-color:#fff}
+.bq-actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.2rem}
+.bq-actions .btn-line{color:var(--cream)}
+.size-meter{margin-top:1.4rem;padding:1rem 1.2rem;border-radius:18px;background:rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:.9rem}
+.size-meter b{font-family:var(--serif);font-weight:400;font-size:1.6rem;color:var(--blush)}
+
+/* seasons pinned */
+.seasons{background:var(--cream);position:relative}
+.s-sticky{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:1.6rem;padding-top:64px}
+.s-top{display:flex;justify-content:space-between;align-items:end;gap:1rem}
+.s-top h2{font-size:clamp(2.4rem,5.5vw,4.8rem);margin-top:.6rem}
+.s-prog{width:min(260px,40vw);height:3px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:.8rem;flex:none}
+.s-prog i{display:block;height:100%;background:var(--rose);transform-origin:left;transform:scaleX(0)}
+.s-track{display:flex;gap:clamp(12px,1.6vw,22px);padding:0 var(--g);will-change:transform}
+.mon{flex:none;width:min(72vw,520px);height:min(60svh,560px);border-radius:28px;padding:clamp(1.3rem,3vw,2.2rem);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between}
+.mon h3{font-family:var(--serif);font-weight:400;font-size:clamp(2.8rem,5vw,4.6rem);line-height:.9;position:relative;z-index:2}
+.mon .tag{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;opacity:.65}
+.mon ul{list-style:none;display:flex;flex-wrap:wrap;gap:.4rem;position:relative;z-index:2}
+.mon li{font-size:.82rem;font-weight:600;padding:.38rem .8rem;border-radius:999px;background:rgba(255,255,255,.6);display:flex;align-items:center;gap:.45rem}
+.mon li i{width:9px;height:9px;border-radius:50%}
+.mon .cluster{position:absolute;right:-8%;top:30%;width:58%;opacity:.95}
+.mon.now{outline:3px solid var(--ink);outline-offset:-3px}
+.mon.now .tag::after{content:" · blooming now";color:var(--rose-deep)}
+@media (max-width:760px){
+  .seasons{height:auto!important}
+  .s-sticky{position:relative;height:auto;padding:5rem 0}
+  .s-top{padding:0 var(--g)}
+  .s-prog{display:none}
+  .s-track{overflow-x:auto;scroll-snap-type:x mandatory;transform:none!important;scrollbar-width:none}
+  .s-track::-webkit-scrollbar{display:none}
+  .mon{width:82vw;height:440px;scroll-snap-align:center}
+}
+
+/* feed */
+.feed-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,5vw,5rem);align-items:center}
+@media (max-width:900px){.feed-grid{grid-template-columns:1fr}}
+.phone{width:min(400px,100%);margin:0 auto;border-radius:44px;background:var(--ink);padding:14px;box-shadow:0 50px 80px -40px rgba(74,34,56,.6);transform:rotate(2.5deg);transition:transform .6s}
+.phone:hover{transform:rotate(0)}
+.phone .scr{border-radius:32px;overflow:hidden;background:#fff;height:620px;position:relative}
+.phone iframe{width:100%;height:100%;border:0}
+.phone .fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;gap:1rem;background:linear-gradient(170deg,#fde3d8,#f2d3c9);z-index:0}
+.phone iframe{position:relative;z-index:1}
+.care{display:grid;gap:0;margin-top:2rem;border-top:1px solid var(--line)}
+.care div{display:grid;grid-template-columns:42px 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.care b{font-family:var(--serif);font-weight:400;font-size:1.6rem;color:var(--rose);line-height:1}
+.care span{color:var(--muted);font-size:.95rem}
+.care strong{display:block;color:var(--ink)}
+
+/* visit */
+.visit{background:var(--moss);color:var(--cream)}
+.visit .eyebrow{color:var(--butter)}
+.visit .serif em{color:var(--butter)}
+.v-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(1.5rem,5vw,5rem);align-items:start}
+@media (max-width:900px){.v-grid{grid-template-columns:1fr}}
+.v-grid h2{font-size:clamp(3rem,7vw,6rem);margin:1rem 0 2rem}
+.v-list{border-top:1px solid rgba(255,255,255,.15)}
+.v-list div{display:grid;grid-template-columns:120px 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.15)}
+.v-list dt{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;opacity:.55;padding-top:.2rem}
+.v-list a{text-decoration:none;border-bottom:1px solid rgba(246,217,122,.5)}
+.faq details{border-top:1px solid rgba(255,255,255,.15)}
+.faq details:last-child{border-bottom:1px solid rgba(255,255,255,.15)}
+.faq summary{list-style:none;cursor:pointer;padding:1.3rem 0;display:flex;justify-content:space-between;gap:1rem;font-family:var(--serif);font-size:1.5rem;line-height:1.15}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;font-style:normal;transition:transform .4s,background .3s}
+.faq details[open] summary i{transform:rotate(45deg);background:var(--butter);color:var(--ink)}
+.faq .a{padding:0 0 1.3rem;opacity:.75;max-width:60ch}
+
+footer{background:var(--ink);color:var(--cream);padding:clamp(4rem,8vw,7rem) 0 2rem;overflow:hidden}
+.f-big{font-family:var(--serif);font-size:clamp(3.6rem,14vw,14rem);line-height:.86;letter-spacing:-.03em}
+.f-big em{color:var(--blush)}
+.f-row{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.12);font-size:.88rem;opacity:.7}
+.f-row a{text-decoration:none}
+
+/* request drawer */
+.bag{position:fixed;right:var(--g);bottom:22px;z-index:44;display:flex;align-items:center;gap:.6rem;padding:.9rem 1.2rem;border-radius:999px;background:var(--ink);color:var(--cream);font-weight:700;box-shadow:0 20px 40px -15px rgba(0,0,0,.5);transform:translateY(200%);visibility:hidden;transition:transform .5s cubic-bezier(.2,.8,.2,1),visibility .5s}
+.bag.show{transform:none;visibility:visible}
+.bag em{font-style:normal;background:var(--rose);min-width:24px;height:24px;border-radius:12px;display:grid;place-items:center;font-size:.8rem;padding:0 .4rem}
+.dbg{position:fixed;inset:0;background:rgba(31,36,24,.5);z-index:60;opacity:0;pointer-events:none;transition:opacity .4s}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--cream);z-index:61;transform:translateX(100%);transition:transform .55s cubic-bezier(.7,0,.2,1);display:flex;flex-direction:column}
+.open-d .drawer{transform:none}.open-d .dbg{opacity:1;pointer-events:auto}
+.drawer header{display:flex;justify-content:space-between;align-items:center;padding:1.3rem 1.5rem;border-bottom:1px solid var(--line)}
+.drawer header h3{font-family:var(--serif);font-weight:400;font-size:2rem}
+.drawer .x{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);font-size:1.2rem}
+.d-body{flex:1;overflow:auto;padding:.5rem 1.5rem}
+.li{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.li b{display:block}.li small{color:var(--muted)}
+.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:999px}
+.qty button{width:34px;height:34px;font-size:1.1rem}.qty span{min-width:20px;text-align:center;font-weight:700}
+.d-foot{padding:1.3rem 1.5rem;border-top:1px solid var(--line);display:grid;gap:.7rem}
+.d-foot textarea{width:100%;border:1px solid var(--line);border-radius:14px;padding:.8rem;font:inherit;font-size:.9rem;background:#fff;resize:vertical;min-height:70px}
+.d-foot .fine{font-size:.78rem;color:var(--muted);text-align:center}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,160%);visibility:hidden;background:var(--ink);color:var(--cream);padding:.8rem 1.2rem;border-radius:999px;font-size:.9rem;z-index:80;transition:transform .45s cubic-bezier(.2,.8,.2,1),visibility .45s;max-width:92vw;text-align:center}
+.toast.show{transform:translate(-50%,0);visibility:visible}
+.petal-cursor{position:fixed;left:0;top:0;pointer-events:none;z-index:90}
+</style>
+</head>
+<body>
+<div class="progress" id="prog"></div>
+
+<nav class="nav" id="nav" aria-label="Primary">
+  <a class="logo" href="#top" aria-label="Willow June Flower Farm home">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><g fill="#d9707a"><ellipse cx="20" cy="11" rx="6" ry="9"/><ellipse cx="20" cy="29" rx="6" ry="9"/><ellipse cx="11" cy="20" rx="9" ry="6"/><ellipse cx="29" cy="20" rx="9" ry="6"/></g><circle cx="20" cy="20" r="5" fill="#f6d97a"/></svg>
+    <span><b data-cfg="name">Willow June</b><small>Flower Farm</small></span>
+  </a>
+  <ul>
+    <li><a href="#offerings">Offerings</a></li>
+    <li><a href="#catalog">Catalogue</a></li>
+    <li><a href="#bouquet">Bouquet Bar</a></li>
+    <li><a href="#seasons">Seasons</a></li>
+    <li><a href="#visit">Visit</a></li>
+  </ul>
+  <a class="btn btn-ink" href="#bouquet">Build a bouquet</a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+</nav>
+<div class="mm" id="mm" aria-hidden="true">
+  <a href="#offerings">Offerings</a><a href="#catalog">Catalogue</a><a href="#bouquet">Bouquet Bar</a><a href="#seasons">Seasons</a><a href="#feed">From the field</a><a href="#visit">Visit</a>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <canvas id="garden" aria-hidden="true"></canvas>
+  <svg id="willow" aria-hidden="true"></svg>
+  <div class="wrap hero-in">
+    <span class="chip"><i></i><span id="seasonChip">Fresh-cut, field-grown flowers</span></span>
+    <h1 class="serif"><span class="w"><span>Flowers</span></span> <span class="w"><span style="animation-delay:.08s">worth</span></span> <span class="w"><span style="animation-delay:.16s"><em>slowing</em></span></span> <span class="w"><span style="animation-delay:.24s">down</span></span> <span class="w"><span style="animation-delay:.32s">for.</span></span></h1>
+    <p class="lead" data-cfg="tagline">Seasonal blooms grown by hand and cut at dawn. Bouquets, flower shares, event florals and slow mornings in the field at Willow June Flower Farm.</p>
+    <div class="ctas">
+      <a href="#bouquet" class="btn btn-rose">Design your bouquet</a>
+      <a href="#catalog" class="btn btn-line">See what we grow</a>
+    </div>
+  </div>
+  <div class="scroll-cue">Scroll</div>
+</header>
+
+<div class="marq" aria-hidden="true"><div class="marq-t" id="marq"></div></div>
+
+<!-- MANIFESTO -->
+<section class="sec manifesto">
+  <div class="wrap">
+    <span class="eyebrow rv">Our way</span>
+    <p id="manifesto" style="margin-top:1.6rem">We grow flowers the slow way: in real dirt, by hand, by the season. Every stem is cut at first light, and every bouquet is a little different, because no two days in the field are ever the same.</p>
+  </div>
+</section>
+
+<!-- OFFERINGS -->
+<section class="sec" id="offerings" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="eyebrow rv">What we offer</span><h2 class="serif rv d1">Ways to bring the <em>field</em> home.</h2></div>
+      <p class="rv d2">From a single market bunch to a whole wedding's worth of blooms, here's every way to get Willow June flowers into your hands.</p>
+    </div>
+    <div class="offers" id="offers"></div>
+  </div>
+</section>
+
+<!-- CATALOGUE -->
+<section class="sec catalog" id="catalog">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="eyebrow rv">The full catalogue</span><h2 class="serif rv d1">Everything in <em>bloom</em>.</h2></div>
+      <p class="rv d2">Bouquets, shares, stems by the bucket, events and workshops. Add anything to your request list and send it to us in one message.</p>
+    </div>
+    <div class="tabs rv" id="tabs" role="group" aria-label="Filter catalogue"></div>
+    <div class="items" id="items"></div>
+    <p class="cat-note rv">Availability changes with the weather and the season. We'll confirm stems, pricing and pickup details when you reach out.</p>
+  </div>
+</section>
+
+<!-- BOUQUET BAR -->
+<section class="sec bar" id="bouquet">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="eyebrow rv">The bouquet bar</span><h2 class="serif rv d1">Design it. <em>We'll grow it.</em></h2></div>
+      <p class="rv d2">Tap a color to add a stem and watch your bouquet come together. Tap a bloom in the bouquet to remove it. Send it to us when it feels right.</p>
+    </div>
+    <div class="studio">
+      <div class="stage rv">
+        <span class="count" id="bqCount">0 stems</span>
+        <svg id="bq" viewBox="0 0 400 500" role="img" aria-label="Your custom bouquet">
+          <g class="sway"><g id="stemsL"></g><g id="wrapL"></g><g id="headsL"></g></g>
+        </svg>
+        <span class="hint" id="bqHint">Pick a stem to begin →</span>
+      </div>
+      <div>
+        <div class="picker" id="picker"></div>
+        <div class="size-meter"><span>Bouquet size</span><b id="bqSize">Just getting started</b></div>
+        <div class="bq-actions">
+          <button class="btn btn-rose" id="bqSend">Request this bouquet</button>
+          <button class="btn btn-line" id="bqShuffle">Shuffle</button>
+          <button class="btn btn-line" id="bqClear">Clear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEASONS -->
+<section class="seasons" id="seasons" aria-label="Bloom calendar">
+  <div class="s-sticky">
+    <div class="wrap s-top">
+      <div><span class="eyebrow">Bloom calendar</span><h2 class="serif">What's <em>blooming</em>, month by month.</h2></div>
+      <div class="s-prog"><i id="sBar"></i></div>
+    </div>
+    <div class="s-track" id="sTrack"></div>
+  </div>
+</section>
+
+<!-- FEED -->
+<section class="sec" id="feed">
+  <div class="wrap feed-grid">
+    <div>
+      <span class="eyebrow rv">From the field</span>
+      <h2 class="serif rv d1" style="font-size:clamp(2.8rem,6vw,5.2rem);margin:.8rem 0 1.2rem">Live from our <em>Facebook</em>.</h2>
+      <p class="rv d2" style="color:var(--muted);max-width:42ch;font-size:1.05rem">Our newest blooms, farm stand days and availability get posted here first. Follow along, then message us to claim your stems.</p>
+      <div class="rv d2" style="display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.6rem">
+        <a class="btn btn-ink" data-cfg-href="facebook" target="_blank" rel="noopener">Follow on Facebook</a>
+        <a class="btn btn-line" data-cfg-href="messenger" target="_blank" rel="noopener">Message us</a>
+      </div>
+      <div class="care rv d3">
+        <div><b>1</b><span><strong>Recut the stems</strong>Trim about an inch at an angle under water before they go in the vase.</span></div>
+        <div><b>2</b><span><strong>Fresh water, often</strong>Change it every day or two and strip any leaves below the waterline.</span></div>
+        <div><b>3</b><span><strong>Keep them cool</strong>Keep them away from direct sun, heat vents and ripening fruit, which shortens vase life.</span></div>
+      </div>
+    </div>
+    <div class="phone rv d1">
+      <div class="scr">
+        <div class="fallback"><svg width="60" height="60" viewBox="0 0 40 40"><g fill="#d9707a"><ellipse cx="20" cy="11" rx="6" ry="9"/><ellipse cx="20" cy="29" rx="6" ry="9"/><ellipse cx="11" cy="20" rx="9" ry="6"/><ellipse cx="29" cy="20" rx="9" ry="6"/></g><circle cx="20" cy="20" r="5" fill="#f6d97a"/></svg><b class="serif" style="font-size:1.8rem">Fresh posts load here</b><span style="font-size:.9rem;color:var(--muted)">If the feed doesn't appear, open our page directly.</span><a class="btn btn-ink" data-cfg-href="facebook" target="_blank" rel="noopener">Open Facebook</a></div>
+        <iframe id="fbFeed" title="Willow June Flower Farm on Facebook" loading="lazy" allow="encrypted-media"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="sec visit" id="visit">
+  <div class="wrap v-grid">
+    <div>
+      <span class="eyebrow rv">Visit &amp; contact</span>
+      <h2 class="serif rv d1">Come say <em>hello.</em></h2>
+      <dl class="v-list rv d2" id="vlist"></dl>
+      <div class="rv d3" style="display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.8rem">
+        <a class="btn btn-rose" data-cfg-href="messenger" target="_blank" rel="noopener">Message the farm</a>
+        <a class="btn btn-line" data-cfg-href="facebook" target="_blank" rel="noopener">Facebook page</a>
+      </div>
+    </div>
+    <div class="faq rv d1" id="faq"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-big">See you in<br>the <em>field.</em></div>
+    <div class="f-row"><span>© <span id="yr"></span> <span data-cfg="name">Willow June</span> Flower Farm</span><span>Grown by hand · Cut at dawn</span><a data-cfg-href="facebook" target="_blank" rel="noopener">Facebook ↗</a></div>
+  </div>
+</footer>
+
+<button class="bag" id="bag" aria-label="Open your request list">Request list <em id="bagN">0</em></button>
+<div class="dbg" id="dbg"></div>
+<aside class="drawer" id="drawer" aria-label="Your request list" aria-hidden="true">
+  <header><h3>Your request</h3><button class="x" id="dx" aria-label="Close">×</button></header>
+  <div class="d-body" id="dbody"></div>
+  <div class="d-foot">
+    <textarea id="dnote" placeholder="Date needed, colors you love, pickup or delivery…"></textarea>
+    <button class="btn btn-rose" id="dsend">Copy &amp; message the farm</button>
+    <p class="fine">Opens Messenger with your request copied. Just paste and send.</p>
+  </div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* =====================================================================
+   EDIT ME: farm details + full catalogue.
+   Anything here flows into the whole site. Placeholder values are marked
+   "TBD". Swap in real details from the farm and leave everything else alone.
+   ===================================================================== */
+const CONFIG = {
+  name: "Willow June",
+  facebook: "https://www.facebook.com/p/Willow-June-Flower-Farm-61591456326555/",
+  facebookId: "61591456326555",
+  messenger: "https://m.me/61591456326555",
+  location: "",          // e.g. "1234 Example Rd, Linden, MI" (blank = "Shared when you book")
+  phone: "",             // e.g. "(810) 555-0123"
+  email: "",             // e.g. "hello@willowjuneflowers.com"
+  hours: "Seasonal farm stand days, posted weekly on Facebook",
+  season: [5, 10],       // first and last month of the cutting season (1–12)
+};
+
+const OFFERINGS = [
+  {t:"Bouquets", d:"Market bouquets wrapped and ready to grab, plus custom arrangements built to your colors.", tags:["Market bunches","Custom","Gifts"], img:"scenes/bouquets", art:"bouquet", cls:"o1"},
+  {t:"Flower Shares", d:"A seasonal subscription: fresh bouquets every week or every other week, all season long.", tags:["Weekly","Bi-weekly","Pickup"], img:"scenes/subscription", art:"jar", cls:"o2"},
+  {t:"U-Pick & Farm Stand", d:"Wander the rows with clippers and a bucket, or grab ready-made bunches at the stand.", tags:["Bucket fills","Stand days","Family friendly"], img:"scenes/upick", art:"bucket", cls:"o3"},
+  {t:"Events & Weddings", d:"Bulk buckets, DIY bride buckets and full-service florals for celebrations big and small.", tags:["Weddings","Showers","Buckets"], img:"scenes/events", art:"arch", cls:"o4"},
+];
+
+// cat: bouquets | shares | upick | events | stems | extras   price: "" shows "Ask"
+const CATALOG = [
+  {id:"market",  cat:"bouquets", name:"Market Bouquet",        desc:"A hand-tied mix of whatever's at its peak this week.", price:"TBD", art:"bouquet"},
+  {id:"mason",   cat:"bouquets", name:"Mason Jar Arrangement", desc:"Short, sweet and ready for the table. Jar included.", price:"TBD", art:"jar"},
+  {id:"custom",  cat:"bouquets", name:"Custom Arrangement",    desc:"Built around your colors, flowers and occasion.", price:"", art:"bouquet"},
+  {id:"sympathy",cat:"bouquets", name:"Celebration & Sympathy", desc:"Birthdays, thank-yous and remembrance pieces made with care.", price:"", art:"bouquet"},
+  {id:"share4",  cat:"shares",   name:"4-Week Flower Share",   desc:"Four weekly bouquets. A great taste of the season.", price:"TBD", art:"jar"},
+  {id:"shareFull",cat:"shares",  name:"Full-Season Share",     desc:"Fresh flowers from first tulip to last dahlia, every week.", price:"TBD", art:"jar"},
+  {id:"shareGift",cat:"shares",  name:"Gift a Share",          desc:"The gift that keeps blooming all summer. Card included.", price:"TBD", art:"gift"},
+  {id:"upick",   cat:"upick",    name:"U-Pick Bucket",         desc:"Grab your clippers and fill a bucket from the rows. Book a time.", price:"TBD", art:"bucket"},
+  {id:"upickGroup",cat:"upick",  name:"Private Picking Party", desc:"Birthdays, girls' nights and field trips in the flowers.", price:"", art:"bucket"},
+  {id:"bucket",  cat:"events",   name:"DIY Bulk Bucket",       desc:"Loose, conditioned stems for arranging yourself. Pick a color story.", price:"TBD", art:"bucket"},
+  {id:"bride",   cat:"events",   name:"Bridal & Bridesmaid Bouquets", desc:"Garden-style bouquets and boutonnieres, all field grown.", price:"", art:"bouquet"},
+  {id:"centerpiece",cat:"events",name:"Centerpieces",          desc:"Bud vases and low arrangements for tables of any size.", price:"", art:"jar"},
+  {id:"workshop",cat:"events",   name:"Bouquet Workshop",      desc:"Learn to design with seasonal stems. Leave with your creation.", price:"TBD", art:"gift"},
+  {id:"dahliaStems",cat:"stems", name:"Dahlias by the Stem",   desc:"Dinner plates, ball dahlias and café-au-lait tones in late summer.", price:"", art:"dahlia"},
+  {id:"zinniaStems",cat:"stems", name:"Zinnias by the Bunch",  desc:"Bright, cheerful, and they keep coming all summer long.", price:"", art:"zinnia"},
+  {id:"sunStems",cat:"stems",    name:"Sunflowers",            desc:"Single stems or bunches, from butter-yellow to rust.", price:"", art:"sunflower"},
+  {id:"tubers",  cat:"extras",   name:"Dahlia Tubers",         desc:"Grow our favorites at home. Sold in spring while supplies last.", price:"", art:"dahlia"},
+  {id:"dried",   cat:"extras",   name:"Dried Flower Bundles",  desc:"Strawflower, statice and grasses that last all winter.", price:"", art:"cosmos"},
+  {id:"giftcard",cat:"extras",   name:"Gift Certificate",      desc:"Let them pick their own blooms. Any amount.", price:"", art:"gift"},
+];
+const CAT_LABEL = {all:"All", bouquets:"Bouquets", shares:"Flower Shares", upick:"U-Pick", events:"Events & Weddings", stems:"Stems", extras:"Extras"};
+
+// Bouquet-bar stems (colors are swatches)
+const STEMS = [
+  {id:"dahlia",     name:"Dahlia",     note:"The late-summer star", colors:["#f2c9b8","#d9707a","#7a1f3d","#f3a683"]},
+  {id:"zinnia",     name:"Zinnia",     note:"Bold & cheerful",      colors:["#f08a5d","#e84a7f","#f6d97a"]},
+  {id:"cosmos",     name:"Cosmos",     note:"Airy & delicate",      colors:["#fbf3ee","#f4a7c0","#c2185b"]},
+  {id:"sunflower",  name:"Sunflower",  note:"Pure sunshine",        colors:["#f6c445","#e08a1e"]},
+  {id:"ranunculus", name:"Ranunculus", note:"Layers on layers",     colors:["#f8d3c5","#f39c6b","#fff3e0"]},
+  {id:"snapdragon", name:"Snapdragon", note:"Height & drama",       colors:["#f9e3a3","#f4b6c2","#9b5fa8"]},
+  {id:"eucalyptus", name:"Greenery",   note:"Eucalyptus & foliage", colors:["#8fa98a","#6b7c4f"]},
+];
+
+// Typical northern cut-flower calendar (edit to the farm's real timing)
+const BLOOMS = {
+  4:["Tulips","Daffodils","Hellebores"], 5:["Tulips","Ranunculus","Anemones","Lilacs"],
+  6:["Peonies","Sweet peas","Snapdragons","Larkspur"], 7:["Zinnias","Sunflowers","Cosmos","Snapdragons","Strawflower"],
+  8:["Dahlias","Zinnias","Sunflowers","Celosia","Cosmos"], 9:["Dahlias","Celosia","Amaranth","Asters"],
+  10:["Dahlias (until frost)","Mums","Ornamental grasses","Dried bundles"],
+};
+
+const FAQ = [
+  ["How do I order?","Build a bouquet or add items from the catalogue, then tap “Request” and we'll pick it up in Messenger. We'll confirm availability, pricing and pickup."],
+  ["When is flower season?","Our cutting season usually runs late spring through the first hard frost. The bloom calendar above shows what's typically in each month."],
+  ["Can I choose my colors?","Absolutely. Use the bouquet bar to show us your palette and we'll match it as closely as the field allows that week."],
+  ["Do you do weddings and events?","Yes. Ask about DIY buckets, bridal bouquets, centerpieces and full-service options. Reach out early, because summer dates fill fast."],
+  ["How long will my flowers last?","Most field-grown blooms last 5–10 days with fresh water and a cool spot. The care tips above help them go the distance."],
+];
+</script>
+
+<script>
+(() => {
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const calm = matchMedia("(prefers-reduced-motion:reduce)").matches;
+  const fine = matchMedia("(hover:hover) and (pointer:fine)").matches;
+  const clamp = (v,a=0,b=1) => Math.min(b,Math.max(a,v));
+  const rnd = s => { const x = Math.sin(s*9301+49297)*233280; return x - Math.floor(x); };
+  const shade = (hex, amt) => { const n = parseInt(hex.slice(1),16); let r=n>>16,g=n>>8&255,b=n&255;
+    const t = amt<0?0:255, p = Math.abs(amt); r=Math.round((t-r)*p+r); g=Math.round((t-g)*p+g); b=Math.round((t-b)*p+b); return `rgb(${r},${g},${b})`; };
+  const toast = m => { const t=$("#toast"); t.textContent=m; t.classList.add("show"); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove("show"),2800); };
+
+  /* ---------- config binding ---------- */
+  $$("[data-cfg]").forEach(el => el.textContent = CONFIG[el.dataset.cfg] || el.textContent);
+  $$("[data-cfg-href]").forEach(el => el.href = CONFIG[el.dataset.cfgHref]);
+  const fbPage = `https://www.facebook.com/${CONFIG.facebookId}`;
+  $("#fbFeed").src = `https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(fbPage)}&tabs=timeline&width=372&height=620&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false`;
+  const M = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  const MF = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  $("#vlist").innerHTML = [
+    ["Location", CONFIG.location || "Farm address shared when you book a visit"],
+    ["Season", `${MF[CONFIG.season[0]-1]} – ${MF[CONFIG.season[1]-1]}, weather permitting`],
+    ["Hours", CONFIG.hours],
+    ["Message", `<a href="${CONFIG.messenger}" target="_blank" rel="noopener">Messenger</a> · fastest reply`],
+    CONFIG.phone && ["Call / text", `<a href="tel:${CONFIG.phone.replace(/[^\d+]/g,"")}">${CONFIG.phone}</a>`],
+    CONFIG.email && ["Email", `<a href="mailto:${CONFIG.email}">${CONFIG.email}</a>`],
+  ].filter(Boolean).map(([k,v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("");
+  $("#faq").innerHTML = FAQ.map(([q,a]) => `<details><summary>${q}<i>+</i></summary><div class="a">${a}</div></details>`).join("");
+  const now = new Date().getMonth()+1;
+  $("#seasonChip").textContent = (now >= CONFIG.season[0] && now <= CONFIG.season[1])
+    ? `In the field now: ${(BLOOMS[now]||[]).slice(0,2).join(" & ").toLowerCase()}`
+    : `Resting for winter · ${MF[CONFIG.season[0]-1]} blooms are coming`;
+
+  /* ---------- flower head renderer (SVG strings) ---------- */
+  const petalsRing = (n, dist, rx, ry, fill, rot=0, extra="") => Array.from({length:n},(_,i)=>
+    `<ellipse cx="0" cy="${-dist}" rx="${rx}" ry="${ry}" fill="${fill}" transform="rotate(${i*360/n+rot})" ${extra}/>`).join("");
+  const HEAD = {
+    dahlia:(c,s) => `<g transform="scale(${s})">${petalsRing(18,22,7,14,shade(c,-.12))}${petalsRing(15,15,6,11,c,12)}${petalsRing(11,8,5,8,shade(c,.25),5)}<circle r="5" fill="${shade(c,.45)}"/></g>`,
+    zinnia:(c,s) => `<g transform="scale(${s})">${petalsRing(14,17,7,11,shade(c,-.1))}${petalsRing(12,10,6,8,c,15)}<circle r="7" fill="#6b3d1f"/><circle r="4" fill="#f6d97a"/></g>`,
+    cosmos:(c,s) => `<g transform="scale(${s})">${petalsRing(8,15,9,15,c,0,`stroke="${shade(c,-.15)}" stroke-width=".8"`)}<circle r="6" fill="#f2b632"/></g>`,
+    sunflower:(c,s) => `<g transform="scale(${s})">${petalsRing(22,24,5,13,shade(c,-.08))}${petalsRing(18,21,4.5,11,c,8)}<circle r="15" fill="#4a2a12"/><circle r="10" fill="#6b3d1f" stroke="#3a1f0c" stroke-dasharray="1 3" stroke-width="4"/></g>`,
+    ranunculus:(c,s) => `<g transform="scale(${s})">${[22,17,12,7].map((r,i)=>`<circle r="${r}" cx="${i%2?1:-1}" fill="${shade(c,i*.1-.1)}" stroke="${shade(c,-.2)}" stroke-width=".8"/>`).join("")}<circle r="3" fill="#7b8f4f"/></g>`,
+    snapdragon:(c,s) => `<g transform="scale(${s})">${Array.from({length:7},(_,i)=>`<ellipse cx="${i%2?5:-5}" cy="${-i*11}" rx="${9-i*.7}" ry="${7-i*.5}" fill="${shade(c,-.05*i)}"/>`).join("")}<ellipse cx="0" cy="-80" rx="3" ry="6" fill="#8fa98a"/></g>`,
+    eucalyptus:(c,s) => `<g transform="scale(${s})"><path d="M0 20 L0 -80" stroke="${shade(c,-.3)}" stroke-width="2"/>${Array.from({length:8},(_,i)=>`<circle cx="${i%2?9:-9}" cy="${10-i*12}" r="${8-i*.5}" fill="${shade(c,i%2?.1:0)}" opacity=".95"/>`).join("")}</g>`,
+  };
+  const iconSVG = (type, c, size=60) => `<svg viewBox="-35 -35 70 70" width="${size}" height="${size}">${type==="snapdragon"||type==="eucalyptus" ? `<g transform="translate(0 28) scale(.7)">${HEAD[type](c,1)}</g>` : HEAD[type](c,1)}</svg>`;
+
+  /* ---------- product / offering art ---------- */
+  const ART = {
+    bouquet:`<svg viewBox="0 0 200 220"><g transform="translate(100 100)"><g transform="translate(-34 -20) rotate(-20)"><path d="M0 0 L20 90" stroke="#6b7c4f" stroke-width="3"/></g><path d="M0 0 L0 100" stroke="#6b7c4f" stroke-width="3"/><path d="M30 -10 L-8 100" stroke="#6b7c4f" stroke-width="3"/><g transform="translate(-34 -24)">${HEAD.cosmos("#fbf3ee",1)}</g><g transform="translate(32 -14)">${HEAD.zinnia("#f08a5d",.9)}</g><g transform="translate(0 -36)">${HEAD.dahlia("#d9707a",1.05)}</g></g><path d="M58 150 L142 150 L112 214 L88 214Z" fill="#d8b98f"/><path d="M84 168 q16 10 32 0" stroke="#6b3d1f" stroke-width="3" fill="none"/></svg>`,
+    jar:`<svg viewBox="0 0 200 220"><g transform="translate(100 96)"><path d="M-10 0 L-24 80 M10 0 L22 80 M0 -10 L0 80" stroke="#6b7c4f" stroke-width="3"/><g transform="translate(-26 -4)">${HEAD.ranunculus("#f8d3c5",.9)}</g><g transform="translate(26 0)">${HEAD.cosmos("#f4a7c0",.9)}</g><g transform="translate(0 -26)">${HEAD.zinnia("#e84a7f",.95)}</g></g><rect x="62" y="150" width="76" height="64" rx="12" fill="#cfe3e6" opacity=".75" stroke="#9fbfc4" stroke-width="2"/><rect x="58" y="142" width="84" height="12" rx="4" fill="#b7a07a"/></svg>`,
+    bucket:`<svg viewBox="0 0 200 220"><g transform="translate(100 90)"><path d="M-20 0 L-24 70 M20 -4 L24 70 M0 -14 L0 70" stroke="#6b7c4f" stroke-width="3"/><g transform="translate(-24 0)">${HEAD.sunflower("#f6c445",.75)}</g><g transform="translate(26 -2)">${HEAD.zinnia("#f6d97a",.9)}</g><g transform="translate(0 -20)">${HEAD.dahlia("#f3a683",.95)}</g></g><path d="M55 140 L145 140 L134 212 L66 212Z" fill="#9aa8b0"/><path d="M55 140 q45 -30 90 0" stroke="#6f7c84" stroke-width="3" fill="none"/></svg>`,
+    arch:`<svg viewBox="0 0 200 220"><path d="M40 214 V100 a60 60 0 0 1 120 0 V214" stroke="#b7a07a" stroke-width="7" fill="none"/>${[[40,110,"#d9707a"],[60,64,"#fbf3ee"],[100,42,"#f4b6c2"],[140,64,"#fbf3ee"],[160,110,"#d9707a"],[48,86,"#8fa98a"],[152,86,"#8fa98a"]].map(([x,y,c],i)=>`<g transform="translate(${x} ${y})">${(i>4?HEAD.eucalyptus:i%2?HEAD.cosmos:HEAD.dahlia)(c,i>4?.35:.62)}</g>`).join("")}</svg>`,
+    gift:`<svg viewBox="0 0 200 220"><rect x="44" y="96" width="112" height="110" rx="8" fill="#f4d6cf"/><rect x="36" y="80" width="128" height="26" rx="6" fill="#d9707a"/><rect x="92" y="80" width="16" height="126" fill="#a8404f"/><g transform="translate(100 70)">${HEAD.ranunculus("#fff3e0",1.1)}</g></svg>`,
+    dahlia:`<svg viewBox="-60 -60 120 120">${HEAD.dahlia("#d9707a",1.7)}</svg>`,
+    zinnia:`<svg viewBox="-60 -60 120 120">${HEAD.zinnia("#f08a5d",1.9)}</svg>`,
+    sunflower:`<svg viewBox="-60 -60 120 120">${HEAD.sunflower("#f6c445",1.6)}</svg>`,
+    cosmos:`<svg viewBox="-60 -60 120 120">${HEAD.cosmos("#f4a7c0",2)}</svg>`,
+  };
+  const PICBG = {bouquets:"#fde3d8",shares:"#e9edd9",upick:"#fbefc4",events:"#ece3f5",stems:"#fde3d8",extras:"#f5ede1"};
+
+  /* ---------- marquee ---------- */
+  const words = ["Dahlias","Zinnias","Sunflowers","Cosmos","Ranunculus","Snapdragons","Peonies","Sweet peas","Celosia","Strawflower"];
+  $("#marq").innerHTML = [...words,...words].map(w=>`<span>${w}</span>`).join("");
+
+  /* ---------- manifesto words ---------- */
+  const man = $("#manifesto"), HL = /slow|dirt|hand|season|first|light|different/i;
+  man.innerHTML = man.textContent.split(" ").map(w => `<span class="wd${HL.test(w)?" hl":""}">${w}</span>`).join(" ");
+  const wds = $$("#manifesto .wd");
+
+  /* ---------- offerings ---------- */
+  $("#offers").innerHTML = OFFERINGS.map((o,i) => `
+    <article class="offer ${o.cls} rv d${i%4}" data-ph-host>
+      <div class="art">${ART[o.art]}</div>
+      <img class="ph" data-ph="images/${o.img}" alt="${o.t}">
+      <span class="n">0${i+1}</span>
+      <h3>${o.t}</h3><p>${o.d}</p>
+      <div class="tags">${o.tags.map(t=>`<span>${t}</span>`).join("")}</div>
+    </article>`).join("");
+
+  /* ---------- catalogue ---------- */
+  const cats = ["all",...new Set(CATALOG.map(c=>c.cat))];
+  $("#tabs").innerHTML = cats.map(c => `<button class="tab" data-c="${c}" aria-pressed="${c==="all"}">${CAT_LABEL[c]||c}</button>`).join("");
+  const priceHTML = p => !p ? "Ask" : p === "TBD" ? `Ask<small>pricing coming soon</small>` : p;
+  $("#items").innerHTML = CATALOG.map(it => `
+    <article class="item rv" data-cat="${it.cat}">
+      <div class="pic" style="background:radial-gradient(circle at 50% 40%,#fff,${PICBG[it.cat]})">${ART[it.art]}<img class="ph" data-ph="images/flowers/${it.id}" alt="${it.name}" loading="lazy"></div>
+      <span class="k">${CAT_LABEL[it.cat]}</span><h4>${it.name}</h4><p>${it.desc}</p>
+      <div class="ft"><div class="pr">${priceHTML(it.price)}</div><button class="add" data-id="${it.id}">+ Request</button></div>
+    </article>`).join("");
+  $("#tabs").addEventListener("click", e => { const b = e.target.closest(".tab"); if (!b) return;
+    $$(".tab").forEach(t => t.setAttribute("aria-pressed", t===b));
+    $$(".item").forEach(i => i.hidden = !(b.dataset.c==="all" || i.dataset.cat===b.dataset.c)); });
+
+  /* ---------- request list ---------- */
+  const req = {}; try { Object.assign(req, JSON.parse(localStorage.getItem("wj-req")||"{}")); } catch(e){}
+  let bouquet = [], touched = false;
+  const reqText = () => {
+    const lines = Object.entries(req).filter(([id])=>CATALOG.find(c=>c.id===id)).map(([id,q]) => `• ${q} × ${CATALOG.find(c=>c.id===id).name}`);
+    if (bouquet.length && touched) { const tally = {}; bouquet.forEach(s => { const k = STEMS.find(x=>x.id===s.type).name; tally[k]=(tally[k]||0)+1; });
+      lines.push(`• Custom bouquet (${bouquet.length} stems): ${Object.entries(tally).map(([k,v])=>`${v} ${k}`).join(", ")}`); }
+    const note = $("#dnote").value.trim();
+    return `Hi Willow June! I'd love to request:\n\n${lines.join("\n")}${note?`\n\nNotes: ${note}`:""}\n\nThank you!`;
+  };
+  const renderReq = () => {
+    const n = Object.values(req).reduce((a,b)=>a+b,0) + (bouquet.length&&touched?1:0);
+    $("#bagN").textContent = n; $("#bag").classList.toggle("show", n>0);
+    const rows = Object.entries(req).map(([id,q]) => { const it = CATALOG.find(c=>c.id===id); if (!it) return "";
+      return `<div class="li"><div><b>${it.name}</b><small>${CAT_LABEL[it.cat]}</small></div><div class="qty"><button data-dec="${id}" aria-label="Less">−</button><span>${q}</span><button data-inc="${id}" aria-label="More">+</button></div></div>`; });
+    if (bouquet.length && touched) rows.push(`<div class="li"><div><b>Your custom bouquet</b><small>${bouquet.length} stems from the bouquet bar</small></div><a href="#bouquet" class="add" onclick="document.body.classList.remove('open-d')">Edit</a></div>`);
+    $("#dbody").innerHTML = rows.join("") || `<p style="padding:3rem 0;text-align:center;color:var(--muted)">Nothing yet. Add something from the catalogue.</p>`;
+    $$(".add[data-id]").forEach(b => { const q = req[b.dataset.id]; b.classList.toggle("on", !!q); b.textContent = q ? `✓ Added ${q}` : "+ Request"; });
+    try { localStorage.setItem("wj-req", JSON.stringify(req)); } catch(e){}
+  };
+  document.addEventListener("click", e => { const b = e.target.closest(".add[data-id]"); if (!b) return; req[b.dataset.id]=(req[b.dataset.id]||0)+1; renderReq(); });
+  $("#dbody").addEventListener("click", e => { const i=e.target.dataset.inc, d=e.target.dataset.dec; if(i) req[i]++; if(d){ if(--req[d]<=0) delete req[d]; } renderReq(); });
+  const drawer = o => { document.body.classList.toggle("open-d", o); $("#drawer").setAttribute("aria-hidden", !o); };
+  $("#bag").onclick = () => drawer(true); $("#dx").onclick = $("#dbg").onclick = () => drawer(false);
+  const sendReq = async () => {
+    const txt = reqText();
+    try { await navigator.clipboard.writeText(txt); toast("Request copied. Paste it into Messenger and send."); } catch(e) { toast("Opening Messenger…"); }
+    window.open(CONFIG.messenger, "_blank", "noopener");
+  };
+  $("#dsend").onclick = sendReq;
+
+  /* ---------- bouquet bar ---------- */
+  $("#picker").innerHTML = STEMS.map(s => `
+    <div class="pk"><div class="ic">${iconSVG(s.id, s.colors[0], 52)}</div><div><b>${s.name}</b><small>${s.note}</small></div>
+    <div class="sw">${s.colors.map(c => `<button style="background:${c}" data-t="${s.id}" data-c="${c}" aria-label="Add ${s.name}"></button>`).join("")}</div></div>`).join("");
+  const BASE = [200,410], SVGNS = "http://www.w3.org/2000/svg";
+  const g = (html) => { const el = document.createElementNS(SVGNS,"g"); el.innerHTML = html; return el; };
+  $("#wrapL").innerHTML = `<path d="M118 340 L282 340 L226 492 L174 492Z" fill="#d8b98f"/><path d="M118 340 L200 360 L282 340 L262 372 L138 372Z" fill="#c9a676"/><path d="M172 400 q28 18 56 0" stroke="#7a3b0c" stroke-width="4" fill="none"/><path d="M200 408 l-22 28 M200 408 l22 28" stroke="#7a3b0c" stroke-width="3"/>`;
+  let uid = 0;
+  const layout = () => {
+    const order = [...bouquet].sort((a,b) => (a.type==="eucalyptus"||a.type==="snapdragon"?0:1) - (b.type==="eucalyptus"||b.type==="snapdragon"?0:1));
+    const n = order.length;
+    order.forEach((s,i) => {
+      const spread = Math.min(70, 16 + n*4.5);
+      const a = n===1 ? 0 : -spread/2 + spread*(i/(n-1)) + (rnd(s.seed)-.5)*6;
+      const tr = `rotate(${a}deg)`;
+      s.stemEl.style.transform = tr; s.headEl.style.transform = tr;
+      s.stemEl.parentNode.appendChild(s.stemEl); s.headEl.parentNode.appendChild(s.headEl);
+    });
+    $("#bqCount").textContent = `${n} stem${n===1?"":"s"}`;
+    $("#bqHint").style.opacity = n ? 0 : .6;
+    $("#bqSize").textContent = n===0 ? "Just getting started" : n<7 ? "Petite" : n<13 ? "Market" : n<20 ? "Grand" : "Show-stopper";
+    renderReq();
+  };
+  const addStem = (type, color) => {
+    if (bouquet.length >= 24) { toast("That's a full armful! Remove a stem to add more."); return; }
+    const seed = ++uid + Math.random()*100, L = 170 + rnd(seed)*70 - (type==="dahlia"||type==="sunflower"?20:0) + (type==="snapdragon"||type==="eucalyptus"?10:0);
+    const bend = (rnd(seed+1)-.5)*30, tip = BASE[1]-L;
+    const stemEl = g(`<path class="${calm?"":"draw"}" pathLength="1" d="M200 ${BASE[1]+60} Q${200+bend} ${BASE[1]-L/2} 200 ${tip}" stroke="#5d7044" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+      ${type!=="eucalyptus"?`<ellipse cx="${200+bend*.4+8}" cy="${BASE[1]-L*.45}" rx="10" ry="4" fill="#7b8f5a" transform="rotate(-30 ${200+bend*.4+8} ${BASE[1]-L*.45})"/>`:""}`);
+    stemEl.setAttribute("class","sg");
+    const sc = .9 + rnd(seed+2)*.35;
+    const headEl = g(`<g transform="translate(200 ${tip})"><g class="${calm?"":"pop"}">${HEAD[type](color, type==="snapdragon"||type==="eucalyptus"?sc*.9:sc)}</g></g>`);
+    headEl.setAttribute("class","sg hd");
+    const s = {id:uid,type,color,seed,stemEl,headEl};
+    headEl.addEventListener("click", () => { touched = true; removeStem(s); });
+    $("#stemsL").appendChild(stemEl); $("#headsL").appendChild(headEl);
+    bouquet.push(s); layout();
+  };
+  const removeStem = s => { s.headEl.style.transition="opacity .3s"; s.headEl.style.opacity=0; s.stemEl.style.opacity=0;
+    setTimeout(()=>{ s.headEl.remove(); s.stemEl.remove(); }, 300); bouquet = bouquet.filter(x=>x!==s); layout(); };
+  $("#picker").addEventListener("click", e => { const b = e.target.closest("button[data-t]"); if (b) touched = true; if (b) addStem(b.dataset.t, b.dataset.c); });
+  $("#bqClear").onclick = () => { [...bouquet].forEach(removeStem); };
+  $("#bqShuffle").onclick = () => { touched = true; bouquet.forEach(s => s.seed = Math.random()*1000); bouquet.sort(()=>Math.random()-.5); layout(); };
+  $("#bqSend").onclick = () => { touched = true; renderReq(); if (!bouquet.length) { toast("Add a few stems first ✿"); return; } drawer(true); };
+  // starter bouquet so the stage never looks empty
+  [["eucalyptus","#8fa98a"],["snapdragon","#f4b6c2"],["dahlia","#f2c9b8"],["cosmos","#fbf3ee"],["zinnia","#e84a7f"],["ranunculus","#f39c6b"],["dahlia","#d9707a"]].forEach(([t,c],i)=>setTimeout(()=>addStem(t,c), 400+i*160));
+
+  /* ---------- seasons ---------- */
+  const months = Object.keys(BLOOMS).map(Number);
+  const DOT = ["#d9707a","#f6c445","#f4a7c0","#f08a5d","#9b5fa8","#8fa98a"];
+  const MBG = ["#fde3d8","#f4e8f7","#e9edd9","#fbefc4","#fde0cf","#f2d3c9","#e8dccb"];
+  const clusterTypes = ["ranunculus","cosmos","zinnia","sunflower","dahlia","dahlia","cosmos"];
+  $("#sTrack").innerHTML = months.map((m,i) => `
+    <article class="mon${m===now?" now":""}" style="background:${MBG[i%MBG.length]}">
+      <svg class="cluster" viewBox="-80 -80 160 160" aria-hidden="true"><g transform="translate(-28 18)">${HEAD[clusterTypes[i]](DOT[(i+1)%6],1.1)}</g><g transform="translate(26 -8)">${HEAD[clusterTypes[(i+2)%7]](DOT[(i+3)%6],1.3)}</g><g transform="translate(-6 -40)">${HEAD.cosmos(DOT[i%6],.8)}</g></svg>
+      <div><span class="tag">${String(i+1).padStart(2,"0")} · ${m>=CONFIG.season[0]&&m<=CONFIG.season[1]?"In season":"Early bloomers"}</span><h3>${MF[m-1]}</h3></div>
+      <ul>${BLOOMS[m].map((f,j)=>`<li><i style="background:${DOT[(j+i)%6]}"></i>${f}</li>`).join("")}</ul>
+    </article>`).join("");
+
+  /* ---------- photo slots ---------- */
+  const EXT = ["jpg","jpeg","png","webp"];
+  $$("img.ph").forEach(img => { let k = 0; const host = img.closest("[data-ph-host]");
+    img.onload = () => { img.classList.add("ok"); host && host.classList.add("has-ph"); };
+    img.onerror = () => { if (++k < EXT.length) img.src = `${img.dataset.ph}.${EXT[k]}`; else img.remove(); };
+    img.src = `${img.dataset.ph}.${EXT[0]}`; });
+
+  /* ---------- willow strands ---------- */
+  const wsvg = $("#willow");
+  const buildWillow = () => {
+    const W = innerWidth, count = Math.round(W/44); let html = `<path d="M-20 6 Q${W*.3} 30 ${W*.55} 10 T${W+20} 14" stroke="#5d6b45" stroke-width="5" fill="none"/>`;
+    wsvg.setAttribute("viewBox", `0 0 ${W} 340`);
+    for (let i=0;i<count;i++) {
+      const x = (i+.5)*W/count + (rnd(i)-.5)*14, len = 50 + rnd(i+7)*(W<700?80:140), dur = 4.5 + rnd(i+3)*3;
+      let leaves = ""; for (let y=18; y<len; y+=13) { const side = (y/13)%2?1:-1; leaves += `<ellipse cx="${x+side*5}" cy="${y}" rx="2.6" ry="8" fill="${rnd(i*y)>.5?"#7d9160":"#97a876"}" transform="rotate(${side*28} ${x+side*5} ${y})"/>`; }
+      html += `<g class="strand" data-x="${x}" style="--d:${dur}s;transform-origin:${x}px 8px;animation-delay:${-rnd(i+5)*dur}s"><path d="M${x} 8 Q${x+4} ${len/2} ${x} ${len}" stroke="#6b7c4f" stroke-width="1.3" fill="none"/>${leaves}</g>`;
+    }
+    wsvg.innerHTML = html;
+  };
+  buildWillow();
+
+  /* ---------- hero garden canvas ---------- */
+  const cv = $("#garden"), cx = cv.getContext("2d"), hero = $(".hero");
+  let W=0,H=0,plants=[],petals=[],mouse={x:-1e3,y:-1e3,vx:0},heroOn=true,wind=0;
+  const dpr = Math.min(2, devicePixelRatio||1);
+  const PCOL = ["#d9707a","#f4a7c0","#f3a683","#f6d97a","#fbf3ee","#b9a7d6","#e84a7f"];
+  const sizeHero = () => { W = hero.clientWidth; H = hero.clientHeight; cv.width=W*dpr; cv.height=H*dpr; cx.setTransform(dpr,0,0,dpr,0,0);
+    const n = Math.round(W/(W<700?34:30));
+    plants = Array.from({length:n},(_,i)=>({x:(i+.5)*W/n+(Math.random()-.5)*20,h:H*(W<700?.08:.1)+Math.random()*H*(W<700?.14:.17),c:PCOL[i%PCOL.length],
+      p:5+Math.floor(Math.random()*4),r:8+Math.random()*9,ph:Math.random()*6.28,delay:Math.random()*1400,type:Math.random()}));
+    petals = Array.from({length:Math.round(W/40)},()=>newPetal(true)); };
+  const newPetal = (any) => ({x:Math.random()*W, y:any?Math.random()*H:-20, r:3+Math.random()*4, rot:Math.random()*6.28, vr:(Math.random()-.5)*.04, vy:.4+Math.random()*.7, c:PCOL[Math.floor(Math.random()*PCOL.length)]});
+  sizeHero(); let rT; addEventListener("resize",()=>{clearTimeout(rT); rT=setTimeout(()=>{sizeHero(); buildWillow(); sizeSeasons();},150);});
+  hero.addEventListener("pointermove", e => { const b = hero.getBoundingClientRect(); const nx = e.clientX-b.left; mouse.vx = nx-mouse.x; mouse.x = nx; mouse.y = e.clientY-b.top;
+    if (fine) $$("#willow .strand").forEach(s => { const d = Math.abs(+s.dataset.x - mouse.x); s.style.rotate = d<140 ? `${clamp(mouse.vx,-30,30)*.25*(1-d/140)}deg` : "0deg"; }); });
+  hero.addEventListener("pointerleave", () => { mouse.x = mouse.y = -1e3; $$("#willow .strand").forEach(s=>s.style.rotate="0deg"); });
+  new IntersectionObserver(([e]) => heroOn = e.isIntersecting).observe(hero);
+  const t0 = performance.now();
+  const drawFlower = (x,y,p,r,c,open,ang,type) => {
+    cx.save(); cx.translate(x,y); cx.rotate(ang);
+    if (type < .25) { // tulip-ish cup
+      cx.fillStyle = c; cx.beginPath(); cx.moveTo(-r*.8*open,0); cx.quadraticCurveTo(-r*open,-r*1.4,0,-r*1.5*open); cx.quadraticCurveTo(r*open,-r*1.4,r*.8*open,0); cx.closePath(); cx.fill();
+    } else {
+      for (let i=0;i<p;i++){ cx.save(); cx.rotate(i*6.283/p + ang*2); cx.fillStyle = c; cx.globalAlpha=.92; cx.beginPath(); cx.ellipse(0,-r*.6*open,r*.42*open,r*.75*open,0,0,6.283); cx.fill(); cx.restore(); }
+      cx.globalAlpha=1; cx.fillStyle = type>.7?"#5b3a1e":"#f2b632"; cx.beginPath(); cx.arc(0,0,r*.3*open+1,0,6.283); cx.fill();
+    }
+    cx.restore();
+  };
+  const frame = now => {
+    if (heroOn && !calm) {
+      const t = now - t0; cx.clearRect(0,0,W,H);
+      mouse.vx *= .92; wind += ((mouse.x>0? clamp(mouse.vx,-40,40)*.004 : 0) - wind)*.05;
+      for (const pl of plants) {
+        const g = clamp((t - pl.delay)/1800), e = 1 - Math.pow(1-g,3);
+        const dm = Math.abs(pl.x - mouse.x), push = mouse.x>0 && dm<160 ? (1-dm/160)*clamp(mouse.vx,-30,30)*.02 : 0;
+        pl.sw = (pl.sw||0) + ((Math.sin(t*.0011+pl.ph)*.06 + wind + push) - (pl.sw||0))*.08;
+        const top = H - pl.h*e, tipX = pl.x + Math.sin(pl.sw)*pl.h*e;
+        cx.strokeStyle = "#6b7c4f"; cx.lineWidth = 2; cx.beginPath(); cx.moveTo(pl.x,H); cx.quadraticCurveTo(pl.x + Math.sin(pl.sw)*pl.h*.3, H - pl.h*e*.55, tipX, top); cx.stroke();
+        if (e>.4) { cx.fillStyle="#7d9160"; cx.beginPath(); cx.ellipse(pl.x+Math.sin(pl.sw)*pl.h*.15+6, H-pl.h*e*.35, 9*e, 3.5*e, -.6, 0, 6.283); cx.fill(); }
+        const open = clamp((t - pl.delay - 1200)/1200);
+        if (open>0) drawFlower(tipX, top, pl.p, pl.r, pl.c, 1-Math.pow(1-open,3), pl.sw, pl.type);
+      }
+      for (const p of petals) {
+        p.y += p.vy; p.x += Math.sin(p.y*.02)*.6 + wind*30; p.rot += p.vr;
+        const dx = p.x-mouse.x, dy = p.y-mouse.y, d2 = dx*dx+dy*dy; if (d2<9000){ const d=Math.sqrt(d2)||1; p.x += dx/d*2.5; p.y += dy/d*1.5; }
+        if (p.y>H+20 || p.x<-30 || p.x>W+30) Object.assign(p,newPetal(false));
+        cx.save(); cx.translate(p.x,p.y); cx.rotate(p.rot); cx.fillStyle=p.c; cx.globalAlpha=.75; cx.beginPath(); cx.ellipse(0,0,p.r,p.r*.55,0,0,6.283); cx.fill(); cx.restore();
+      }
+      cx.globalAlpha = 1;
+    }
+    requestAnimationFrame(frame);
+  };
+  requestAnimationFrame(frame);
+
+  /* ---------- scroll engine ---------- */
+  const sec = $("#seasons"), track = $("#sTrack"), nav = $("#nav"), prog = $("#prog"), wide = () => innerWidth > 760;
+  const sizeSeasons = () => { sec.style.height = wide() ? (track.scrollWidth - innerWidth + innerHeight) + "px" : ""; };
+  sizeSeasons();
+  const onScroll = () => {
+    const y = scrollY, Hd = document.documentElement.scrollHeight - innerHeight;
+    prog.style.transform = `scaleX(${y/Hd})`;
+    nav.classList.toggle("solid", y > 40);
+    // manifesto word reveal
+    const mr = man.getBoundingClientRect(), mp = clamp((innerHeight*.85 - mr.top)/(mr.height + innerHeight*.35));
+    const lit = Math.round(mp * wds.length); wds.forEach((w,i) => w.classList.toggle("on", i < lit));
+    // seasons pinned scroll
+    if (wide()) { const r = sec.getBoundingClientRect(), p = clamp(-r.top/(sec.offsetHeight-innerHeight));
+      track.style.transform = `translateX(${-p*(track.scrollWidth-innerWidth)}px)`; $("#sBar").style.transform = `scaleX(${p})`; }
+  };
+  addEventListener("scroll", onScroll, {passive:true}); onScroll();
+
+  /* ---------- reveal ---------- */
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} }), {threshold:.12, rootMargin:"0px 0px -40px"});
+  $$(".rv").forEach(el => io.observe(el));
+
+  /* ---------- menu ---------- */
+  $("#burger").onclick = () => { const o = document.body.classList.toggle("menu-open"); $("#burger").setAttribute("aria-expanded", o); $("#mm").setAttribute("aria-hidden", !o); };
+  $$("#mm a").forEach(a => a.onclick = () => document.body.classList.remove("menu-open"));
+
+  /* ---------- desktop extras: tilt + petal cursor trail ---------- */
+  if (fine && !calm) {
+    $$(".offer,.item").forEach(el => {
+      el.addEventListener("pointermove", e => { const b = el.getBoundingClientRect(), x=(e.clientX-b.left)/b.width-.5, y=(e.clientY-b.top)/b.height-.5;
+        el.style.transition="transform .12s"; el.style.transform=`perspective(900px) rotateX(${-y*7}deg) rotateY(${x*9}deg) translateY(-4px)`; });
+      el.addEventListener("pointerleave", () => { el.style.transition="transform .6s cubic-bezier(.2,.8,.2,1)"; el.style.transform=""; });
+    });
+    let last = 0;
+    addEventListener("pointermove", e => { const n = performance.now(); if (n-last < 70) return; last = n;
+      const p = document.createElement("div"); p.className = "petal-cursor";
+      p.innerHTML = `<svg width="12" height="12" viewBox="0 0 10 10"><ellipse cx="5" cy="5" rx="5" ry="3" fill="${PCOL[Math.floor(Math.random()*PCOL.length)]}"/></svg>`;
+      p.style.transform = `translate(${e.clientX}px,${e.clientY}px)`; document.body.appendChild(p);
+      p.animate([{transform:`translate(${e.clientX}px,${e.clientY}px) rotate(0)`,opacity:.9},{transform:`translate(${e.clientX+(Math.random()-.5)*40}px,${e.clientY+50}px) rotate(${Math.random()*360}deg)`,opacity:0}],{duration:1100,easing:"ease-out"}).onfinish = () => p.remove();
+    }, {passive:true});
+  }
+
+  $("#yr").textContent = new Date().getFullYear();
+  renderReq();
+})();
+</script>
+</body>
+</html>
