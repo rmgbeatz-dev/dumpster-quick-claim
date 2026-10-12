@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /client.html
+Sitemap: https://www.bovitzphotography.com/sitemap.xml

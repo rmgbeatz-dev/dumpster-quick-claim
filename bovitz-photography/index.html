@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bovitz Photography · Portraits, Couples &amp; Weddings</title>
+<meta name="description" content="Bovitz Photography: honest light and unhurried moments. Portrait, senior, couples, family and wedding photography. View the portfolio and book your session.">
+<meta name="theme-color" content="#0d0d0c">
+<link rel="canonical" href="https://www.bovitzphotography.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bovitz Photography">
+<meta property="og:description" content="Honest light. Unhurried moments. Photographs that feel like you.">
+<meta property="og:image" content="images/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="manifest" href="site.webmanifest">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230d0d0c'/%3E%3Ccircle cx='50' cy='50' r='28' fill='none' stroke='%23ece6dc' stroke-width='5'/%3E%3Ccircle cx='50' cy='50' r='9' fill='%23e4a25b'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Bovitz Photography","url":"https://www.bovitzphotography.com/",
+ "description":"Portrait, senior, couples, family and wedding photography.","sameAs":["https://www.instagram.com/bovitzphotography/"],
+ "makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Portrait photography"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Wedding photography"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Senior portraits"}}]}
+</script>
+</head>
+<body>
+<div class="loader" id="loader" aria-hidden="true">
+  <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none" stroke="#ece6dc" stroke-width="2"/>
+    <path class="blade" d="M50 6 L72 30 L50 50Z"/><path class="blade" d="M94 50 L70 72 L50 50Z" style="animation-delay:.2s"/><path class="blade" d="M50 94 L28 70 L50 50Z" style="animation-delay:.25s"/><path class="blade" d="M6 50 L30 28 L50 50Z" style="animation-delay:.3s"/></svg>
+  <span class="mono">Focusing…</span>
+</div>
+<div class="progress" id="prog"></div>
+<div class="flash" id="flash"></div>
+
+<nav class="nav" id="nav" aria-label="Primary">
+  <a class="wordmark" href="#top">Bovitz<small>Photography</small></a>
+  <ul>
+    <li><a href="#work">Portfolio</a></li><li><a href="#stories">Stories</a></li><li><a href="#services">Services</a></li>
+    <li><a href="#journal">Instagram</a></li><li><a href="client.html">Client Login</a></li>
+  </ul>
+  <a class="btn btn-a" href="#book">Book a session</a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+</nav>
+<div class="mmenu" id="mmenu" aria-hidden="true">
+  <a href="#work">Portfolio</a><a href="#stories">Stories</a><a href="#services">Services</a><a href="#book">Book</a><a href="#journal">Instagram</a><a href="client.html">Client login</a>
+</div>
+
+<!-- HERO: viewfinder slideshow -->
+<header class="hero" id="top">
+  <div id="slides"></div>
+  <div class="vf" aria-hidden="true">
+    <span class="c tl"></span><span class="c tr"></span><span class="c bl"></span><span class="c br"></span><span class="af" id="af"></span>
+    <span class="rec mono"><i></i>LIVE</span><span class="frame mono" id="frameNo">01 / 05</span>
+    <div class="hud mono"><span id="hudExif">f/1.8 · 1/500 · ISO 100</span><span class="meter hide-s"><b></b><b></b><b class="k"></b><b></b><b></b><b></b><b class="k"></b><b></b><b></b><b></b><b class="k"></b></span><span class="hide-s">RAW · 4:5</span><span id="hudCat">Couples</span></div>
+  </div>
+  <div class="caption mono" id="heroCap">Now showing<b>Last Light on the Ridge</b></div>
+  <div class="hero-copy">
+    <h1 class="disp"><span class="ln"><span>Honest</span></span><span class="ln"><span><em>light.</em></span></span></h1>
+    <div class="hero-row">
+      <p id="tagline"></p>
+      <div class="ctas"><a class="btn btn-a" href="#book">Check availability</a><a class="btn btn-o" href="#work" style="color:#fff">View portfolio</a></div>
+    </div>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true"><div class="ticker-t" id="ticker"></div></div>
+
+<!-- PORTFOLIO -->
+<section class="sec" id="work">
+  <div class="wrap">
+    <div class="sh"><div><span class="kick rv">Selected work</span><h2 class="disp rv d1">The <em>portfolio</em></h2></div>
+      <p class="rv d2">A few favorite frames from recent sessions. Tap any image to view it full screen, and use your arrow keys or swipe to browse.</p></div>
+    <div class="filters rv" id="filters" role="group" aria-label="Filter portfolio"></div>
+    <div class="masonry" id="grid"></div>
+  </div>
+</section>
+
+<!-- STORIES -->
+<section class="stories" id="stories" aria-label="Featured stories">
+  <div class="st-sticky">
+    <div class="wrap st-head"><div><span class="kick">Featured stories</span><h2 class="disp">Whole days, <em>told well.</em></h2></div><span class="st-count"><b id="stNow">01</b> / <span id="stTot">04</span></span></div>
+    <div class="st-track" id="stTrack"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="wrap about-g">
+    <div class="portrait rv"><img id="aboutImg" alt="Behind the camera"><div class="stamp mono">Behind the lens</div></div>
+    <div>
+      <span class="kick rv">About</span>
+      <blockquote class="rv d1" style="margin-top:1.4rem">“I'm not interested in perfect. I'm interested in the half-second <em>after</em> the pose, when you forget I'm there.”</blockquote>
+      <p class="rv d2">Bovitz Photography is built on patience, natural light and genuine direction: enough guidance that you never feel awkward, and enough room for real moments to happen. Every session is planned around the best light of the day, and every gallery is edited by hand.</p>
+      <div class="stats rv d3"><div><b>2 wk</b><span>Typical gallery delivery</span></div><div><b>100%</b><span>Hand-edited images</span></div><div><b>48 hr</b><span>Inquiry response</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec svc" id="services">
+  <div class="wrap">
+    <div class="sh"><div><span class="kick rv">Services &amp; collections</span><h2 class="disp rv d1">Find your <em>session.</em></h2></div>
+      <p class="rv d2">Clear collections, no surprises. Every session includes planning help, hand-edited images and a private online gallery.</p></div>
+    <div class="svc-tabs rv" id="svcTabs" role="group" aria-label="Session type"></div>
+    <div class="pkgs" id="pkgs"></div>
+    <div class="process" id="process"></div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="sec" id="book">
+  <div class="wrap book-g">
+    <aside class="book-side">
+      <span class="kick">Booking</span>
+      <h2 class="disp">Let's make <em>something.</em></h2>
+      <p>Five quick steps. Pick a session, a date and a collection, and I'll confirm within 48 hours. Nothing is charged until we've talked.</p>
+      <dl class="summary" id="summary"></dl>
+    </aside>
+    <div class="wiz" id="wiz">
+      <div class="steps" id="steps"></div>
+      <div class="pane on" data-step="0"><h3>What are we shooting?</h3><div class="types" id="types"></div></div>
+      <div class="pane" data-step="1"><h3>Pick a date &amp; light</h3>
+        <div class="cal-head"><button id="calPrev" aria-label="Previous month">←</button><b id="calMonth"></b><button id="calNext" aria-label="Next month">→</button></div>
+        <div class="cal" id="cal"></div>
+        <div class="legend"><i></i>Weekend golden-hour dates book first</div>
+        <div class="slots" id="slots"></div></div>
+      <div class="pane" data-step="2"><h3>Choose a collection</h3><div class="plist" id="plist"></div></div>
+      <div class="pane" data-step="3"><h3>Tell me about you</h3>
+        <div class="fields">
+          <div class="field"><label for="fName">Name</label><input id="fName" autocomplete="name" required></div>
+          <div class="field"><label for="fEmail">Email</label><input id="fEmail" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="fPhone">Phone (optional)</label><input id="fPhone" type="tel" autocomplete="tel"></div>
+          <div class="field"><label for="fLoc">Location idea</label><input id="fLoc" placeholder="Park, field, downtown, your home…"></div>
+          <div class="field full"><label for="fNote">What should I know?</label><textarea id="fNote" placeholder="Who's in the photos, the vibe you love, how you found me…"></textarea></div>
+        </div></div>
+      <div class="pane" data-step="4"><h3>Review &amp; send</h3><dl class="review" id="review"></dl></div>
+      <div class="pane" data-step="5"><div class="success" id="success"></div></div>
+      <div class="wiz-foot"><button class="btn btn-o" id="back">Back</button><span class="mono" id="stepLbl">Step 1 of 5</span><button class="btn btn-a" id="next">Continue</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="sec" id="journal" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh"><div><span class="kick rv">On Instagram</span><h2 class="disp rv d1">@<em id="igHandle">bovitzphotography</em></h2></div>
+      <p class="rv d2">Fresh work, behind-the-scenes clips and session openings, synced automatically from Instagram.</p></div>
+    <div class="ig-grid" id="ig"></div>
+    <div class="ig-meta"><span class="mono" id="igSync"></span><a class="btn btn-o" id="igFollow" target="_blank" rel="noopener">Follow on Instagram</a></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap"><div class="sh"><div><span class="kick rv">Good to know</span><h2 class="disp rv d1">Questions, <em>answered.</em></h2></div></div><div class="faq" id="faq"></div></div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="f-cta" href="#book">Let's book<br>your <em>light.</em></a>
+    <div class="f-row"><span>© <span id="yr"></span> Bovitz Photography</span><span id="area"></span><span><a id="fIg" target="_blank" rel="noopener">Instagram</a> · <a href="client.html">Client galleries</a></span></div>
+  </div>
+</footer>
+
+<div class="sticky-cta" id="stickyCta"><a class="btn btn-o" href="#work" style="background:rgba(13,13,12,.85);backdrop-filter:blur(10px)">Portfolio</a><a class="btn btn-a" href="#book">Book a session</a></div>
+
+<script src="assets/js/content.js"></script>
+<script src="assets/data/feed.js"></script>
+<script src="assets/js/core.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
