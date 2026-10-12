@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Client Galleries · Bovitz Photography</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0d0d0c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230d0d0c'/%3E%3Ccircle cx='50' cy='50' r='28' fill='none' stroke='%23ece6dc' stroke-width='5'/%3E%3Ccircle cx='50' cy='50' r='9' fill='%23e4a25b'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<nav class="nav solid" aria-label="Primary">
+  <a class="wordmark" href="index.html">Bovitz<small>Client galleries</small></a>
+  <a class="btn btn-o" href="index.html" style="padding:.7rem 1.1rem;font-size:.84rem">← Back to site</a>
+</nav>
+
+<main id="gateView" class="gate">
+  <div class="gate-art"><img id="gateImg" alt=""></div>
+  <div class="gate-form">
+    <span class="kick">Private galleries</span>
+    <h1 class="disp">Your photos <em>are ready.</em></h1>
+    <p>Enter the access code from your delivery email to view, favorite and download your gallery.</p>
+    <form class="code" id="codeForm" autocomplete="off"><input id="code" aria-label="Access code" placeholder="Access code" required><button class="btn btn-a">Open</button></form>
+    <p class="hint">Demo: try the code <b class="mono" style="color:var(--bone)">DEMO</b></p>
+  </div>
+</main>
+
+<main id="galView" hidden>
+  <header class="g-hero"><img id="gHeroImg" alt=""><div class="in"><span class="kick" id="gMeta"></span><h1 class="disp" id="gName" style="margin-top:.8rem"></h1></div></header>
+  <div class="g-bar"><div class="wrap">
+    <div class="grp" role="group" aria-label="Show">
+      <button class="fbtn" id="vAll" aria-pressed="true">All <sup id="nAll"></sup></button>
+      <button class="fbtn" id="vFav" aria-pressed="false">♥ Favorites <sup id="nFav">0</sup></button>
+    </div>
+    <div class="grp">
+      <button class="btn btn-o" id="play">▶ Slideshow</button>
+      <button class="btn btn-o" id="dl">Download all</button>
+      <button class="btn btn-a" id="send">Send my favorites</button>
+    </div>
+  </div></div>
+  <div class="wrap g-grid" id="gGrid"></div>
+</main>
+
+<script src="assets/js/content.js"></script>
+<script src="assets/js/core.js"></script>
+<script src="assets/js/client.js"></script>
+</body>
+</html>
